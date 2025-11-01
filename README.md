@@ -84,7 +84,7 @@ You will create a task management application for a company  of your choice wher
 
 ---
 
-###General Requirements for All Pages:
+### General Requirements for All Pages:
   1.	CSS Framework:
     -  Use a CSS framework of your choice (e.g., Bootstrap) to style the website.
   2. Responsive Design:
@@ -96,7 +96,7 @@ You will create a task management application for a company  of your choice wher
 
 ---
 
-###Additional Technical Requirements:
+### Additional Technical Requirements:
   1. Responsive Navigation:
      - Implement a responsive navigation menu that collapses into a hamburger menu on smaller screens.
   2. Form Validation:
