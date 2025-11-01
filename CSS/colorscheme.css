@@ -1,0 +1,18 @@
+/* Color scheme */
+
+:root {
+    --text-color: #0d0a19;
+    --hover-text: #aba7ae;
+    --logo-text: #221546;
+    --photo-hue: rgba(170,170,170,0.4);
+    --header-hue: rgba(16, 16, 16, 0.5);
+}
+
+.darkmode {
+    --header-text-color: white;
+    --hover-text: rgba(70,70,70);
+    --text-color: white;
+    --logo-text: white;
+    --photo-hue: rgba(4,9,30,0.5);
+    --header-hue: rgba(55, 55, 55, 0.5);
+}
