@@ -1,0 +1,8 @@
+/* Welcome section*/ 
+
+.welcome-section {
+    background-image: linear-gradient(rgba(4,9,30,0.7)),url(../Images/ntua.jpg);
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+}
