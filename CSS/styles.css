@@ -30,7 +30,7 @@ body {
 
 /* Header */
 
-.header {
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -44,16 +44,33 @@ body {
     z-index: 1000;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 3%;
-}
-
 header img {
     width: 7%;
     height: auto;
     min-width: 4rem;
+}
+
+header a {
+    color: var(--logo-text);
+	margin-right: 50px;
+    font-weight: bold;
+    align-items: center;
+    height: 100%;
+}
+
+#logo a {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+header a:hover {
+	color: var(--hover-text);
+	transition: all 0.3s ease 0;
+}
+
+header i {
+    fill: var(--logo-text);
 }
 
 .logo-name {
@@ -62,7 +79,7 @@ header img {
     font-size: 2rem;
 }
 
-.site-nav {
+/* .site-nav {
     display: flex;
 }
 
@@ -80,6 +97,70 @@ header img {
 .site-nav a:visited {
 	color: none;
 	text-decoration: none;
+} */
+
+/* Toggle menu collapse media */
+
+.links-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#check {
+    display: none;
+}
+
+.open-sidebar-button, .close-sidebar-button {
+    display: none;
+}
+
+@media (max-width: 500px) {
+    .logo-name {
+        display: none;
+    }
+}
+
+@media (max-width: 1100px) {
+    .links-container {
+        flex-direction: column;
+        align-items: flex-start;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        z-index: 10;
+        width: 30%;
+        background-color: var(--bg-color);
+        box-shadow: -5px 0 5px rgba(0,0,0,0.25);
+        transition: 0.5s ease-out;
+    }
+
+    .links-container a {
+        box-sizing: border-box;
+        height: auto;
+        width: 100%;
+        padding: 5% 10%;
+        justify-content: flex-start;
+    }
+
+    .open-sidebar-button, .close-sidebar-button {
+        right: 0;
+        display: block;
+    }
+
+    .close-sidebar-button {
+        padding: 5% 6%;
+    }
+
+    #check:checked ~.links-container {
+        right: 0;
+    }
+
+    #logo {
+        margin-left: auto;
+    }
 }
 
 /* Footer styles */
