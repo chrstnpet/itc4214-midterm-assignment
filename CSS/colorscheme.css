@@ -6,6 +6,7 @@
     --logo-text: #221546;
     --photo-hue: rgba(170,170,170,0.4);
     --header-hue: rgba(16, 16, 16, 0.5);
+    --button: white;
 }
 
 .darkmode {
@@ -15,4 +16,5 @@
     --logo-text: white;
     --photo-hue: rgba(4,9,30,0.5);
     --header-hue: rgba(55, 55, 55, 0.5);
+    --button: black;
 }
