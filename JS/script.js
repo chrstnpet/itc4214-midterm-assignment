@@ -1,3 +1,5 @@
+// Import header and footer
+
 $(function() {
     $("#import-header").load("./header.html");    
 });
