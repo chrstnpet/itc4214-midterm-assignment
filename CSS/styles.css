@@ -225,3 +225,7 @@ footer {
 .copyright {
     color: var(--subtext-color);
 }
+
+hr {
+    color: var(--subtext-color) !important;
+}
