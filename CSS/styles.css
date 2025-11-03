@@ -5,7 +5,7 @@
     src: url(./PermanentMarker-Regular.ttf);
 }
 
-/* General */
+/* ------------------- General -------------------- */
 
 * {
     margin: 0;
@@ -28,7 +28,8 @@ body {
     font-family: Arial, Helvetica, sans-serif !important;
 }
 
-/* Header */
+
+/* -------------------- Header -------------------- */
 
 header {
     display: flex;
@@ -79,27 +80,13 @@ header i {
     font-size: 2rem;
 }
 
-/* .site-nav {
+#navigation {
     display: flex;
+    gap: 2rem;
 }
 
-.site-nav a {
-	color: var(--logo-text);
-	margin-right: 50px;
-    font-weight: bold;
-}
 
-.site-nav a:hover {
-	color: var(--hover-text);
-	transition: all 0.3s ease 0;
-}
-
-.site-nav a:visited {
-	color: none;
-	text-decoration: none;
-} */
-
-/* Toggle menu collapse media */
+/* -------------------- Toggle menu collapse media -------------------- */
 
 .links-container {
     height: 100%;
@@ -115,6 +102,7 @@ header i {
 
 .open-sidebar-button, .close-sidebar-button {
     display: none;
+    color: var(--logo-text);
 }
 
 @media (max-width: 500px) {
@@ -163,9 +151,12 @@ header i {
     }
 }
 
-/* Footer styles */
-.col-6 h3, h4 {
+
+/* -------------------- Footer styles -------------------- */
+
+.col h3, .col h4 {
     font-family: 'Logo-Font' !important;
+    color: var(--logo-text);
 }
 
 .col-6 .sub-motto {
@@ -173,11 +164,11 @@ header i {
 }
 
 .list-unstyled a {
-    color: var(--logo-text);
+    color: var(--text-color);
 }
 
 .icon-links{
-    color: black;
+    color: var(--logo-text);
     text-decoration: none;
 }
 
@@ -187,4 +178,45 @@ footer {
 
 .copyright {
     color: var(--subtext-color);
+}
+
+
+/* -------------------- Dark-mode implementation -------------------- */
+
+#theme-switch {
+    display: flex;
+    border: none;
+    background-color: var(--button);
+    border-radius: 50%;
+    padding: 0;
+    height: 3rem;
+    width: 3rem;
+    justify-content: center;
+    align-items: center;
+}
+
+#theme-switch i {
+    color: var(--logo-text);
+    position: absolute;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 1;
+}
+
+#theme-switch i:last-child {
+    opacity: 0;
+}
+
+.darkmode #theme-switch i:first-child {
+    opacity: 1;
+}
+
+/* Icon Animation on change */
+.darkmode #theme-switch i:first-child {
+    opacity: 0;
+    transform: rotate(-180deg);
+}
+
+.darkmode #theme-switch i:last-child {
+    opacity: 1;
+    transform: rotate(180deg);
 }

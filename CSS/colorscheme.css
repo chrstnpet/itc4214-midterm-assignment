@@ -6,17 +6,20 @@
     --hover-text: #aba7ae;
     --logo-text: #221546;
     --photo-hue: rgba(170,170,170,0.4);
-    --header-hue: rgba(16, 16, 16, 0.5);
-    --button: white;
+    --button: rgba(255,255,255,0.7);
+    --button-hover: rgba(255,255,255,0.8);
     --bg-color: rgba(158, 181, 206, 0.8);
+    --shadow: rgba(255, 255, 255, 0.9);
 }
 
 .darkmode {
+    --text-color: rgb(198, 198, 198);
+    --subtext-color: rgb(115, 115, 115);
     --hover-text: rgba(70,70,70);
-    --text-color: white;
-    --logo-text: white;
+    --logo-text: rgb(210, 210, 210);
     --photo-hue: rgba(4,9,30,0.5);
-    --header-hue: rgba(55, 55, 55, 0.5);
-    --button: black;
-    --bg-color: #0d0a19;
+    --button: rgba(69, 69, 69,0.8);
+    --button-hover: rgba(0,0,0,0.8);
+    --bg-color: #0a0325;
+    --shadow: rgba(0,0,0,0.9);
 }
