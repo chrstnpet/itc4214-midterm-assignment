@@ -17,8 +17,4 @@ if (localStorage.getItem('darkmode') === 'active') {
 $(document).on('click', '#theme-switch', function() {
     const darkmode = localStorage.getItem('darkmode');
     darkmode !== 'active' ? enableDarkmode() : disableDarkmode();
-
-    // -----------------------------------------------------------
-    // Icon animation on change
-    
 });
