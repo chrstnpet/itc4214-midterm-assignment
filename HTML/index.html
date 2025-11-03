@@ -20,35 +20,13 @@
             href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
             integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous" defer></script>
+        
+        <!--Linking JS and jQuery-->
+        <script src="../JS/script.js" type="text/javascript" defer></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </head>
     <body>
-        <header class="header">
-            <div id="logo">
-                <a href="./index.html">
-                    <img src="../Images/logolounge-circle.png" alt="Lounge Seminar Logo">
-                    <p class="logo-name">Lounge Seminar</p>
-                </a>
-            </div>
-
-            <div>
-                <input type="checkbox" id="check">
-                <label for="check" class="open-sidebar-button">
-                    <i class="bi bi-list fs-1"></i>
-                </label>
-
-                <div class="links-container">
-                    <label for="check" class="close-sidebar-button">
-                        <i class="bi bi-x fs-1"></i>
-                    </label>
-
-                    <a href="./index.html">Home</a>
-                    <a href="./about.html">About</a>
-                    <a href="./events.html">Events</a>
-                    <a href="./tasks.html">Tasks</a>
-                    <a href="./contact.html">Contact</a>
-                </div>
-            </div>
-        </header>
+        <div id="import-header"></div>
 
         <div class="welcome-section">
             <div class="welcome-content">
@@ -71,60 +49,6 @@
             <a><button>Visit your tasks.</button></a>
         </div>
 
-        <footer class="full-footer py-4">
-            <div class="container">
-                <div class="row">
-                    <div class="col-6 col-lg-3">
-                        <h3 class="pt-3 fw-bold">Lounge Seminar</h3>
-                        <p class="sub-motto">Speak, share, connect</p>
-                        <p><a href="mailto:loungeseminar@gmail.com" class="icon-links" target="_blank">
-                            <i class="bi bi-envelope-at-fill me-2"></i>loungeseminar@gmail.com
-                        </a></p>
-                        <p class="mb-0">
-                            <a href="https://www.google.com/maps/d/u/0/edit?mid=1keL0X3Fs7d4qcKfoTscWp-Xejn8qLvs&usp=sharing" class="icon-links" target="_blank">
-                                <i class="bi bi-geo-alt-fill me-1"></i>SAMPS, NTUA
-                            </a>
-                        </p>
-                    </div>
-                    <div class="col">
-                        <h4 class="pt-3 fw-bold">Menu</h4>
-                        <ul class="list-unstyled">
-                            <li><a href="">About</a></li>
-                            <li><a href="">Events</a></li>
-                            <li><a href="">Tasks</a></li>
-                            <li><a href="">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-4">
-                        <h4 class="pt-3 fw-bold">Events</h4>
-                        <ul class="list-unstyled">
-                            <li><a href="">Student/Alumni Presentations</a></li>
-                            <li><a href="">Ask Me Anything</a></li>
-                            <li><a href="">Special Events</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-6 col-lg-3 text-lg-end">
-                        <h4 class="pt-3 fw-bold">Social Media</h4>
-                        <div>
-                            <a href="https://www.instagram.com/loungeseminarsamps" class="icon-links">
-                                <i class="bi bi-instagram fs-3 me-3"></i></a>
-                            <a href="https://www.facebook.com/groups/1621547648227578/" class="icon-links">
-                                <i class="bi bi-facebook fs-3 me-3"></i></a>
-                            <a href="https://www.youtube.com/@LoungeSeminar" class="icon-links">
-                                <i class="bi bi-youtube fs-3 me-3"></i></a>
-                            <a href="https://www.linkedin.com/company/lounge-seminar/" class="icon-links">
-                                <i class="bi bi-linkedin fs-3 me-3"></i></a>
-                            <a href="https://helios.ntua.gr/enrol/index.php?id=5508" class="icon-links">
-                                <i class="bi bi-box-arrow-up-right fs-3"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="d-flex">
-                    <p class="copyright">2025 &copy; Lounge Seminar, All Rights Reserved.</p>
-                </div>
-            </div>
-
-        </footer>
+        <div id="import-footer"></div>
     </body>
 </html>
