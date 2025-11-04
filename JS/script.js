@@ -12,7 +12,7 @@ const $author = $('#author');
 
 async function getquote(url){
     try {
-        const response = await fetch(url);  
+        const response = await fetch(url);
         var data = await response.json();
         $quote.html(data.content);
         $author.html(data.author);
