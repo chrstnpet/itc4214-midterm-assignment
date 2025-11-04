@@ -45,7 +45,7 @@
     padding: 3%;
     border: none;
     background-color: var(--button);
-    color: var(--logo-text);
+    color: var(--text-color);
     font-size: 1rem;
     transition: transform 0.2s ease;
 }
@@ -54,4 +54,27 @@
     cursor: pointer;
     transform: scale(1.05);
     background-color: var(--button-hover);
+}
+
+/* API Integration */
+
+#tech-quote {
+    background-color: var(--bg-color);
+    padding-top: 0;
+    text-align: center;
+    font-family: 'Logo-Font';
+    color: var(--text-color);
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+#quote {
+    margin-top: 0;
+    font-size: 1.2rem;
+    padding-top: 2%;
+}
+
+#author {
+    font-size: 1rem;
+    padding-bottom: 2%;
 }

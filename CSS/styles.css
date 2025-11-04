@@ -1,12 +1,5 @@
 @import url(./colorscheme.css);
 
-@font-face {
-    font-family: 'Logo-Font';
-    src: url(./PermanentMarker-Regular.ttf);
-}
-
-/* ------------------- General -------------------- */
-
 * {
     margin: 0;
     padding: 0;
@@ -94,7 +87,7 @@ header i {
     display: inline-flex;
     align-items: center;
     position: relative;
-    margin-top: 2.5%;
+    margin-top: 0;
 }
 
 #check {

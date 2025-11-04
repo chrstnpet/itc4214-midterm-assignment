@@ -1,7 +1,13 @@
+/* Font imports */
+@font-face {
+    font-family: 'Logo-Font';
+    src: url(./PermanentMarker-Regular.ttf);
+}
+
 /* Color scheme */
 
 :root {
-    --text-color: #0d0a19;
+    --text-color: #1a1a1a;
     --subtext-color: rgb(85, 85, 85);
     --hover-text: #aba7ae;
     --logo-text: #221546;
