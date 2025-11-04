@@ -11,10 +11,10 @@
     --subtext-color: rgb(85, 85, 85);
     --hover-text: #aba7ae;
     --logo-text: #221546;
-    --photo-hue: rgba(170,170,170,0.4);
+    --photo-hue: rgba(170,170,170,0.3);
     --button: rgba(255,255,255,0.7);
     --button-hover: rgba(255,255,255,0.8);
-    --bg-color: rgba(158, 181, 206, 0.8);
+    --bg-color: rgba(141, 168, 197, 0.8);
     --shadow: rgba(255, 255, 255, 0.9);
 }
 
@@ -62,11 +62,11 @@ header {
     align-items: center;
     padding: 2% 3%;
     background: var(--bg-color);
-    position: fixed;
     width: 100%;
     top: 0;
     left: 0;
     box-sizing: border-box;
+    box-shadow: 0 0 10px black;
     z-index: 1000;
 }
 
@@ -108,6 +108,10 @@ header i {
 #navigation {
     display: flex;
     gap: 2rem;
+}
+
+#navigation a {
+    margin-top: 15px;
 }
 
 
