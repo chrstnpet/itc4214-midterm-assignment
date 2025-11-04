@@ -5,7 +5,7 @@ $(function() {
 });
 
 //---------------------------------------------------------------
-// API integration
+// API integration (using a mix of JS and jQuery)
 const api_url = "http://api.quotable.io/random?tags=technology";
 const $quote = $('#quote');
 const $author = $('#author');
@@ -14,8 +14,8 @@ async function getquote(url){
     try {
         const response = await fetch(url);  
         var data = await response.json();
-        quote.innerHTML = data.content;
-        author.innerHTML = data.author;
+        $quote.html(data.content);
+        $author.html(data.author);
     }
     catch(error) {
         $quote.html("Could not fetch quote.");
