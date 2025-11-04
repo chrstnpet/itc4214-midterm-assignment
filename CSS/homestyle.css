@@ -63,8 +63,8 @@
     text-align: center;
     font-family: 'Logo-Font';
     color: var(--text-color);
-    padding-left: 15%;
-    padding-right: 15%;
+    padding-left: 20%;
+    padding-right: 20%;
 }
 
 #quote {
