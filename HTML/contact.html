@@ -19,8 +19,7 @@
         <script src="../JS/darkmode.js" type="text/javascript" defer></script>
 
         <!--Page specific head additions-->
-        <link rel="stylesheet"
-            href="../CSS/contact.css">
+        <link rel="stylesheet" href="../CSS/contact.css" type="text/css">
 
         <title>Lounge Seminar - Contact</title>
     </head>
@@ -34,9 +33,45 @@
             </div>
         </div>
 
-        <div>
+        <main class="contact-page">
+            <div id="contact-us">
+                <h1>Connect with us</h1>
+                <p>Direct: <a href="mailto:loungeseminar@gmail.com" class="icon-links" target="_blank">
+                    <i class="bi bi-envelope-at-fill me-2"></i>loungeseminar@gmail.com
+                </a></p>
+                <h4>More ways to connect</h4>
+                <div class="contact-links">
+                    <a href="https://www.instagram.com/loungeseminarsamps" class="icon-links" target="_blank">
+                        <i class="bi bi-instagram fs-4 me-3"></i></a>
+                    <a href="https://www.facebook.com/groups/1621547648227578/" class="icon-links" target="_blank">
+                        <i class="bi bi-facebook fs-4 me-3"></i></a>
+                    <a href="https://www.youtube.com/@LoungeSeminar" class="icon-links" target="_blank">
+                        <i class="bi bi-youtube fs-4 me-3"></i></a>
+                    <a href="https://www.linkedin.com/company/lounge-seminar/" class="icon-links" target="_blank">
+                        <i class="bi bi-linkedin fs-4 me-3"></i></a>
+                    <a href="https://helios.ntua.gr/enrol/index.php?id=5508" class="icon-links" target="_blank">
+                        <i class="bi bi-box-arrow-up-right fs-4"></i></a>
+                </div>
+            </div>
+            <div id="let-us-know">
+                <p><b>OR</b> Fill the provided form and we'll contact you!</p>
+                <form id="contact-us-form">
+                    <label for="sender-name">Full name:</label>
+                    <input id="sender-name" name="Name" placeholder="Your full name">
 
-        </div>
+                    <label for="sender-email">Your E-mail:</label>
+                    <input id="sender-email" name='E-mail' type="email" placeholder="example@email.com">
+
+                    <label for="contact-subject">Subject:</label>
+                    <input id="contact-subject" name="Subject" type="text" placeholder="Subject">
+
+                    <label for="message">How can we help you?</label>
+                    <textarea id="message" cols="60" rows="5" placeholder="Type your message here!"></textarea>
+
+                    <button class="contact-btn" type="submit">Send Message</button>
+                </form> 
+            </div>
+        </main>
 
         <div id="import-footer"></div>
     </body>
