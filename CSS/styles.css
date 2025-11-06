@@ -244,6 +244,7 @@ header i {
 
 .list-unstyled a {
     color: var(--text-color);
+    line-height: 1.8;
 }
 
 .icon-links{
