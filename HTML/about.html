@@ -19,10 +19,49 @@
         <script src="../JS/darkmode.js" type="text/javascript" defer></script>
 
         <!--Page specific head additions-->
+        <link href="../CSS/aboutus.css" type="text/css" rel="stylesheet">
         
         <title>About us!</title>
     </head>
     <body>
 
+        <div id="import-header"></div>
+
+
+        <div id="aboutuscarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000" data-bs-pause="false">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#aboutuscarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#aboutuscarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#aboutuscarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="4000">
+                    <img class="d-block w-100" src="../Images/lounge1.JPG">
+                </div>
+                <div class="carousel-item" data-bs-interval="4000">
+                    <img class="d-block w-100" src="../Images/lounge2.JPG">
+                </div>
+                <div class="carousel-item" data-bs-interval="4000">
+                    <img class="d-block w-100" src="../Images/lounge3.jpg">
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-overlay-text">
+            <p>Who are we?</p>
+            <p>Learn everything about us, our team and our event catalogue!</p>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#aboutuscarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon visually-hidden" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#aboutuscarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon visually-hidden" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+
+        <div id="import-footer"></div>
     </body>
 </html>
