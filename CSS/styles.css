@@ -18,6 +18,7 @@
     --bg-color-2: rgba(209, 226, 237, 0.8);
     --bg-color-3: rgba(121, 121, 121, 0.5);
     --shadow: rgba(255, 255, 255, 0.9);
+    --shadow-2: rgb(37, 35, 73);
 }
 
 .darkmode {
@@ -32,6 +33,7 @@
     --bg-color-2: rgb(103, 100, 118);
     --bg-color-3: rgba(4,9,30,0.5);
     --shadow: rgba(0,0,0,0.9);
+    --shadow-2: rgba(255,255,255,0.9);
 }
 
 /* -------------------- General -------------------- */
@@ -262,4 +264,44 @@ footer {
 
 hr {
     color: var(--subtext-color) !important;
+}
+
+
+
+/* -------------------- Scroll to top button -------------------- */
+
+.scroll-top {
+    right: 2.5%;
+    top: 90%;
+    color: var(--button-hover);
+    text-shadow: 0 0 10px var(--shadow-2),
+        0 0 10px var(--shadow-2),
+        0 0 10px var(--shadow-2),
+        0 0 10px var(--shadow-2);
+    animation-name: appear;
+    animation-timeline: scroll(y);
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        display: none;
+        position: fixed;
+    }
+
+    3% {
+        opacity: 0;
+        display: block;
+    }
+
+    3.5% {
+        opacity: 1;
+        display: block;
+    }
+
+    100% {
+        opacity: 1;
+        display: block;
+        position: fixed;
+    }
 }

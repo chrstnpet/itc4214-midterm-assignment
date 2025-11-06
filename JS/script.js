@@ -54,3 +54,10 @@ $(document).ready(function() {
         this.reset();
     });
 });
+
+
+// Scroll button to top
+
+$(function() {
+    $('#scrolltotop').load("./scrollbutton.html");
+})
