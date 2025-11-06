@@ -21,7 +21,7 @@
 }
 
 .darkmode {
-    --text-color: rgb(198, 198, 198);
+    --text-color: rgb(240,240,240);
     --subtext-color: rgb(115, 115, 115);
     --hover-text: rgba(70,70,70);
     --logo-text: rgb(210, 210, 210);

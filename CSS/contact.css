@@ -64,6 +64,10 @@
     margin-top: 15px;
 }
 
+.contact-links a {
+    color: var(--text-color);
+}
+
 #let-us-know {
     background-color: var(--bg-color-3);
     color: var(--text-color);
@@ -100,7 +104,7 @@
     width: clamp(180px, 6vw, 6vw);
     outline: none;
     border: none;
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
 }
 
 #let-us-know .contact-btn {
@@ -111,7 +115,7 @@
     transform: scale(1.05);
 }
 
-#let-us-know .contact-btn: hover {
+#let-us-know .contact-btn:hover {
     background-color: white;
 }
 
