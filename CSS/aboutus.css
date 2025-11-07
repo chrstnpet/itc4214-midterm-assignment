@@ -1,3 +1,6 @@
+/* ----------------- Title Section ----------------- */
+
+
 .carousel-inner {
     height: 100vh;
     position: relative; /*putting this for the ::before layer*/
@@ -23,7 +26,7 @@
   font-weight: bold;
   color: var(--logo-text);
   z-index: 2;
-  text-shadow: 0 0 10px var(--shadow),
+  text-shadow: 0 0 15px var(--shadow),
         0 0 10px var(--shadow),
         0 0 10px var(--shadow),
         0 0 10px var(--shadow);
@@ -35,4 +38,126 @@
 
 .carousel-overlay-text p:last-child {
     font-size: 3vh;
+}
+
+
+/* ----------------- Who are we section ----------------- */
+
+#who-are-we {
+    padding: 5% 10%;
+    background-color: var(--bg-color-2);
+}
+
+#who-are-we h2, p {
+    color: var(--text-color);
+    line-height: 2;
+}
+
+#who-are-we h2:first-child {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+#who-are-we p:last-of-type {
+    margin-bottom: 10vh;
+}
+
+
+/* ----------------- Events Section ----------------- */
+
+#event-types h3 {
+  text-align: center;
+}
+
+#event-types p {
+  text-align: justify;
+  text-indent: 10%;
+}
+
+.event-card {
+  background-color: var(--bg-color-3);
+  color: var(--text-color);
+  border-radius: 20px;
+  padding: 5% 8% 0 8%;
+  box-shadow: 0 0 5px 0 var(--shadow-2);
+  height: 100%;
+}
+
+.event-card p:first-of-type {
+    margin-top: 5%;
+}
+
+@media (max-width: 767.98px) {
+  #event-types .col-custom-4 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1099.98px) {
+  #event-types .col-custom-4 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (min-width: 1000px) {
+  .col-custom-4 {
+    flex: 0 0 33.3333%;
+    max-width: 33.3333%;
+  }
+}
+
+
+/* ----------------- Members Section ----------------- */
+
+#members {
+    text-align: center;
+}
+
+#members h1 {
+    margin-top: 10vh;
+    color: var(--text-color);
+}
+
+#members img {
+    margin-top: 10%;
+}
+
+#members h5 {
+    font-family: 'Logo-Font';
+    color: var(--text-color);
+}
+
+#members .member-card {
+    border: 2px solid var(--logo-text);
+    padding: 5%;
+    border-radius: 15px;
+    margin-top: 10%;
+}
+
+#members button {
+    color: var(--logo-text);
+    text-decoration: none;
+    margin-top: 0;
+}
+
+#become-member {
+    text-align: center;
+    margin-top: 5vh;
+}
+
+#become-member button {
+    background-color: var(--button);
+    color: var(--text-color);
+    padding: 1.5%;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    transition: transform 0.2s ease;
+}
+
+#become-member button:hover {
+    background-color: var(--button-hover);
+    transform: scale(1.05);
 }
