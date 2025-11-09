@@ -1,3 +1,8 @@
+body {
+    background-color: var(--bg-color-2);
+}
+
+/* ----------------- Page Title section ----------------- */
 .event-title {
     background-image: linear-gradient(var(--photo-hue)), url(../Images/event-title.jpeg);
     background-position: center;
@@ -34,11 +39,121 @@
         0 0 5px var(--shadow); 
 }
 
-.gallery {
-    background-color: var(--bg-color-2);
+.jump-to {
+    padding: 2% 0 0 2%;
 }
+
+.jump-to p {
+    color: var(--text-color);
+}
+
+.jump-to a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.jump-to a:hover {
+    color: var(--hover-text);
+}
+
+/* ---------------- Upcoming Events ----------------- */
+
+.upc-events {
+    text-align: center;
+}
+
+.upc-events h2 {
+    font-family: 'Logo-Font';
+    color: var(--text-color);
+}
+
+
+/* ----------------- Gallery Section ----------------- */
+
+#img-gallery {
+    width: 80%;
+    margin: 100px auto 50px;
+}
+
+#img-gallery h2, #img-gallery h4 {
+    text-align: center;
+    color: var(--text-color);
+}
+
+#img-gallery h2 {
+    font-family: 'Logo-Font';
+}
+
+#import-photos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    justify-items: stretch;
+}
+
+#import-photos img {
+    width: 100%;
+    height: 40vh;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-top: 10%;
+    transition: transform 0.3s ease;
+}
+
+#import-photos img:hover {
+    transform: scale(0.95) rotate(-10deg);
+}
+
+.full-img {
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.full-img img {
+    height: 90vh;
+    border-radius: 20px;
+    border-radius: 20px;
+    transition: transform 0.2s ease;
+    transform-origin: center center;
+}
+
+.full-img .bi-x {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    color: white;
+    cursor: pointer;
+}
+
+.bi-chevron-right, .bi-chevron-left {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    color: white;
+    cursor: pointer;
+}
+
+.bi-chevron-left {
+    left: 2%;
+}
+
+.bi-chevron-right {
+    right: 2%;
+}
+
+/* --------- Youtube videos --------- */
 
 #youtube {
     display: inline-flex;
-    align-items: middle;
+    color: var(--text-color);
+    font-family: 'Logo-Font';
 }
