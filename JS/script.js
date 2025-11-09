@@ -4,7 +4,30 @@ $(function() {
     $("#import-footer").load("./footer.html");
 });
 
+
 //---------------------------------------------------------------
+// Dark mode implementation
+function enableDarkmode() {
+    document.body.classList.add('darkmode');
+    localStorage.setItem('darkmode', 'active');
+}
+
+function disableDarkmode() {
+    document.body.classList.remove('darkmode');
+    localStorage.removeItem('darkmode');
+}
+
+if (localStorage.getItem('darkmode') === 'active') {
+    enableDarkmode();
+}
+
+$(document).on('click', '#theme-switch', function() {
+    const darkmode = localStorage.getItem('darkmode');
+    darkmode !== 'active' ? enableDarkmode() : disableDarkmode();
+});
+
+
+//---------------------------------------------------------------------
 // API integration (using a mix of JS and jQuery)
 const api_url = "http://api.quotable.io/random?tags=technology";
 const $quote = $('#quote');
@@ -26,7 +49,8 @@ async function getquote(url){
 
 getquote(api_url);
 
-//---------------------------------------------------------------
+
+//------------------------------------------------------------------------
 // Collecting form information
 $(document).ready(function() {
     $('#contact-us-form').on('submit', function (e) {
@@ -56,8 +80,21 @@ $(document).ready(function() {
 });
 
 
+// -------------------------------------------------------------------------------------------
 // Scroll button to top
 
 $(function() {
     $('#scrolltotop').load("./scrollbutton.html");
 })
+
+
+// -------------------------------------------------------------------------------------------
+// Import photos HTML for events
+$(function() {
+    $("#import-photos").load("./photos.html");
+});
+
+// Open and close images
+function openFullImage() {
+    $('#fullImgBox').css('display', 'flex');
+}
