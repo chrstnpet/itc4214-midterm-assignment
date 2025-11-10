@@ -56,18 +56,6 @@ body {
     color: var(--hover-text);
 }
 
-/* ---------------- Upcoming Events ----------------- */
-
-.upc-events {
-    text-align: center;
-}
-
-.upc-events h2 {
-    font-family: 'Logo-Font';
-    color: var(--text-color);
-}
-
-
 /* ----------------- Gallery Section ----------------- */
 
 #img-gallery {
@@ -156,4 +144,51 @@ body {
     display: inline-flex;
     color: var(--text-color);
     font-family: 'Logo-Font';
+}
+
+
+
+/* --------- Upcoming Events --------- */
+
+.upc-ev {
+    font-family: 'Logo-Font';
+}
+
+.event-card {
+    background: var(--bg-color);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 3%;
+    transition: all 0.3s ease;
+}
+
+.event-description {
+    display: none;
+    margin-top: 20px;
+    max-height: 200px;
+    overflow-y: auto;
+    border-top: 1px solid var(--logo-text);
+    padding-top: 1%;
+}
+
+.event-description p {
+    margin-bottom: 1%;
+}
+
+#addEvent {
+    background-color: var(--button);
+    color: var(--text-color);
+    border-radius: 20px;
+    padding: 0.8%;
+    border: none;
+    transition: transform 0.2s ease;
+}
+
+#addEvent:hover {
+    transform: scale(1.05);
+    background-color: rgba(0,0,0,0.9);
+}
+
+#cardButtons button {
+    background-color: var(--bg-color-2);
 }

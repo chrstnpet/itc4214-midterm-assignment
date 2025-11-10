@@ -20,6 +20,9 @@
         <!--Page specific head additions-->
         <link href="../CSS/events.css" type="text/css" rel="stylesheet">
         <script src="../JS/gallery.js" type="text/javascript" defer></script>
+        <script src="../JS/events.js" type="text/javascript" defer></script>
+            <!-- Markdown parser -->
+            <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     
         <title>Events</title>
     </head>
@@ -38,10 +41,53 @@
         </p>
 
         <!--Calendar for future events-->
-        <div class="upc-events">
-            <h2>Upcoming Events!</h2> 
-        </div>
+        <div class="container my-5">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="upc-ev">Upcoming Events</h2>
+                <button id="addEvent" data-bs-toggle="modal" data-bs-target="#eventModal">
+                    <i class="bi bi-plus-lg"></i> 
+                    Add Event
+                </button>
+            </div>
+            
+            <div class="eventsContainer"></div>
 
+            <div class="modal fade" id="eventModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Add New Event</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="eventTitle" class="form-label">Event Title</label>
+                                    <input type="text" class="form-control" id="eventTitle" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="eventDate" class="form-label">Date & Time</label>
+                                    <input type="datetime-local" class="form-control" id="eventDate" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="eventDescription" class="form-label">Description</label>
+                                    <textarea class="form-control" id="eventDescription" rows="4" placeholder="Markdown supported"></textarea>
+                                </div>
+
+                                <div class="text-end">
+                                    <button type="submit" class="btn btn-primary">Save Event</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
 
         <!-- Photo Gallery -->
          <div class="full-img" id="fullImgBox">
