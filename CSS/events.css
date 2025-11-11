@@ -3,53 +3,22 @@ body {
 }
 
 /* ----------------- Page Title section ----------------- */
-.event-title {
+.page-title {
     background-image: linear-gradient(var(--photo-hue)), url(../Images/event-title.jpeg);
-    background-position: center;
-    background-size: cover;
-    height: 100vh;
-    width: 100vw;
-    position: relative;
+    aspect-ratio: 1242 / 659; /* maintain image size */
 }
 
-.event-title-content {
-    position: absolute;
-    top: 70%;
-    left: 7%;
-    text-align: left;
-    color: var(--logo-text);
-}
-
-
-.event-title-content h1 {
-    font-size: 8vh;
-    font-weight: bold;
-    text-shadow:
-        0 0 5px var(--shadow),
-        0 0 10px var(--shadow),
-        0 0 20px var(--shadow),
-        0 0 40px var(--shadow);
-}
-
-.event-title-content p {
-    font-size: 4vh;
-    text-shadow: 0 0 5px var(--shadow),
-        0 0 5px var(--shadow),
-        0 0 5px var(--shadow),
-        0 0 5px var(--shadow); 
-}
-
+/* -------------- Jump to section ---------------*/
 .jump-to {
     padding: 2% 0 0 2%;
 }
 
-.jump-to p {
+.jump-to p, .jump-to a {
     color: var(--text-color);
 }
 
 .jump-to a {
     text-decoration: none;
-    color: var(--text-color);
 }
 
 .jump-to a:hover {

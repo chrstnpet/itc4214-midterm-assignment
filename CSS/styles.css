@@ -305,3 +305,54 @@ hr {
         position: fixed;
     }
 }
+
+/* ----------------- Titles on pages -----------------*/
+.page-title {
+    width: 100vw;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    max-height: 100vh;
+}
+
+.page-title-content, .carousel-overlay-text {
+    position: absolute;
+    top: 70%;
+    left: 7%;
+    text-align: left;
+    color: var(--logo-text);
+    z-index: 2;
+    text-shadow: 0 0 15px var(--shadow),
+        0 0 10px var(--shadow),
+        0 0 10px var(--shadow),
+        0 0 10px var(--shadow);
+}
+
+.page-title-content h1, .carousel-overlay-text h1 {
+    font-size: 7vh;
+    font-weight: bold;
+    text-shadow:
+        0 0 5px var(--shadow),
+        0 0 10px var(--shadow),
+        0 0 20px var(--shadow),
+        0 0 40px var(--shadow);
+}
+
+.page-title-content p, .carousel-overlay-text p {
+    font-size: 4vh;
+    text-shadow: 0 0 5px var(--shadow),
+        0 0 5px var(--shadow),
+        0 0 5px var(--shadow),
+        0 0 5px var(--shadow); 
+}
+
+@media (max-width: 850px) {
+    .carousel-overlay-text p, .page-title-content p {
+        font-size: 3vw;
+    }
+
+    .carousel-overlay-text h1, .page-title-content h1 {
+        font-size: 5vw;
+    }
+}
