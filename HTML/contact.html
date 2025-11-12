@@ -66,13 +66,13 @@
                 <h4>Or notify us to contact you!</h4>
                 <form id="contact-us-form">
                     <label for="sender-name">Full name:</label>
-                    <input id="sender-name" name="Name" placeholder="Your full name">
+                    <input id="sender-name" name="Name" pattern="^[A-Z][a-z]+ [A-Z][a-z]+$" placeholder="Your full name" required>
 
                     <label for="sender-email">Your E-mail:</label>
-                    <input id="sender-email" name='E-mail' type="email" placeholder="example@email.com">
+                    <input id="sender-email" name='E-mail' type="email" placeholder="example@email.com" required>
 
                     <label for="contact-subject">Subject:</label>
-                    <input id="contact-subject" name="Subject" type="text" placeholder="Subject">
+                    <input id="contact-subject" name="Subject" type="text" placeholder="Subject" required>
 
                     <label for="message">How can we help you?</label>
                     <textarea id="message" cols="60" rows="5" placeholder="Type your message here!"></textarea>
