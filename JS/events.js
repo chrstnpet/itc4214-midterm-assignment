@@ -79,7 +79,7 @@ $(document).on('click', '.learn-more-btn', function () {
     $btn.text('Learn More');
   } else {
     $desc.slideDown(200);
-    $btn.text('Learn Less');
+    $btn.text('Close Description');
   }
 });
 
