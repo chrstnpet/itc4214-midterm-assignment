@@ -1,0 +1,154 @@
+.page-title {
+    background-image: linear-gradient(var(--photo-hue)), url(../Images/tasks.jpg);
+    aspect-ratio: 6000 / 4000;
+}
+
+/* --------------------------------------------------------------------------------- */
+.task-management-app {
+    display: flex;
+    padding: 5% 10%;
+    background-color: var(--bg-color-2);
+}
+
+.heading {
+    display: flex;
+    justify-content: space-between;
+}
+
+.task-btn {
+    background-color: var(--bg-color);
+    border-radius: 20px;
+    padding: 2%;
+    border: none;
+    transition: transform 0.2s ease;
+}
+
+@media (max-width: 820px) {
+    .heading {
+        display: inline-block;
+    }
+    .task-btn {
+        margin-top: 2%;
+    }
+}
+
+.task-btn:hover {
+    transform: scale(1.05);
+    background-color: var(--button-hover);
+}
+
+.task-container h2 {
+    font-family: 'Logo-Font';
+    color: var(--logo-text);
+}
+
+.task-progress p, .category, .task-btn{
+    color: var(--text-color);
+}
+
+.content-categories {
+    display: inline-flex;
+    padding: 2%;
+    background-color: var(--bg-color);
+    border-radius: 10px;
+}
+
+@media (max-width: 570px) {
+    .content-categories {
+        display: inline-block;
+    }
+
+    .label-wrapper {
+        margin: 4% 0;
+        text-align: center;
+    }
+}
+
+.label-wrapper:not(:last-child) {
+    margin-right: 10vh;
+}
+
+.status-option {
+    display: none;
+}
+
+.category {
+    font-weight: 500;
+    transition: 0.2s ease;
+}
+
+#opt-1:checked + label,
+#opt-2:checked + label,
+#opt-3:checked + label,
+#opt-4:checked + label {
+    color: var(--subtext-color);
+    border-bottom: 2px solid var(--text-color);
+}
+
+.row h3 {
+    margin-top: 30px;
+}
+
+/*--------------------------------------------------------------*/
+/*------------------------ Task cards ------------------------- */
+.task-card {
+    background-color: var(--bg-color);
+    padding: 3%;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    margin: 2% 0;
+}
+
+.task-card, #cardButtons button {
+    color: var(--text-color); !important
+}
+
+#cardButtons {
+    align-items: flex-start;
+    margin-right: 15px;
+}
+
+#cardButtons button {
+    background-color: var(--bg-color-2);
+    padding: 4%;
+    height: auto;
+    margin-right: 5px;
+}
+
+.complete-btn {
+    color: var(--text-color);
+}
+
+.task-description {
+    display: none;
+    border-top: 1px solid var(--logo-text);
+    margin-top: 10px;
+}
+
+.owner-icon img {
+    width: 2.5rem;
+    margin-top: 5px;
+    margin-right: 0;
+}
+
+/* ------------------------------------------------------------ */
+/*---- Progress Bars ----*/
+
+.progress {
+    margin-bottom: 20px;
+}
+
+/* --------------------------------------------------------------------------------- */
+/*----  Pie chart placeholder ----*/
+.piechart {
+                width: 40vh;
+                height: 40vh;
+                border-radius: 50%;
+                margin: 0 auto;
+                background-image: conic-gradient(
+                    pink 70deg,
+                    lightblue 0 235deg,
+                    orange 0
+                );
+            }

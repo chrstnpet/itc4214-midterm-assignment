@@ -16,12 +16,150 @@
             integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous" defer></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
         <script src="../JS/script.js" type="text/javascript" defer></script>
-
-        <!--Page specific head additions-->
         
+        <!--Page specific head additions-->
+        <link href="../CSS/tasks.css" rel="stylesheet" type="text/css">
+        <script src="../JS/tasks.js" type="text/javascript" defer></script>
+            <!-- Markdown parser -->
+            <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
         <title>Tasks</title>
     </head>
     <body>
+        <div id="import-header"></div>
 
+        <div class="page-title">
+            <div class="page-title-content">
+                <h1>Tasks</h1>
+                <p>Team members, let's stay organized!</p>
+            </div>
+        </div>
+
+        <div class="task-management-app">
+            <div class="container task-container">
+                <h2>Task Management</h2>
+                <div class="heading">
+                    <div class="content-categories">
+                        <div class="label-wrapper">
+                            <input type="radio" name="status" id="opt-1" class="status-option" checked>
+                            <label class="category" for="opt-1">All</label>
+                        </div>
+                        <div class="label-wrapper">
+                            <input type="radio" name="status" id="opt-2" class="status-option">
+                            <label class="category" for="opt-2">Pending</label>
+                        </div>
+                        <div class="label-wrapper">
+                            <input type="radio" name="status" id="opt-3" class="status-option">
+                            <label class="category" for="opt-3">In Progress</label>
+                        </div>
+                        <div class="label-wrapper">
+                            <input type="radio" name="status" id="opt-4" class="status-option">
+                            <label class="category" for="opt-4">Done</label>
+                        </div>
+                    </div>
+                    <button class="task-btn" data-bs-toggle="modal" data-bs-target="#taskModal">
+                        <i class="bi bi-plus-lg"></i> Add Task
+                    </button>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div id="pending-tasks" class="col col-12 col-sm-12 col-md-6 col-lg-4">
+                        <h3>Pending</h3>
+                        <div class="task-cards pending"></div>
+                    </div>
+
+                    <div id="in-progress-tasks" class="col col-12 col-sm-12 col-md-6 col-lg-4">
+                        <h3>In progress</h3>
+                        <div class="task-cards inprogress"></div>
+                    </div>
+
+                    <div id="done-tasks" class="col col-12 col-sm-12 col-md-6 col-lg-4">
+                        <h3>Done</h3>
+                        <div class="task-cards done"></div>
+                    </div>
+                </div>
+
+                <div id="dashboard" class="row justify-content-center"> 
+                    <div class="col col-12 col-md-6 col-lg-4"> 
+                        <h3>Tasks Status</h3> 
+                        <div class="bar-charts"> 
+                            <div class="task-progress"> 
+                                <p>Pending</p> 
+                                <progress class="progress progress-visualization" max="100%" value=""></progress> 
+                            </div> 
+                            <div class="task-progress"> 
+                                <p>In Process</p> 
+                                <progress class="progress progress-visualization" max="100%" value=""></progress> 
+                            </div> 
+                            <div class="task-progress"> 
+                                <p>Done</p> 
+                                <progress class="progress progress-visualization" max="100%" value=""></progress> 
+                            </div> 
+                        </div> 
+                    </div>
+
+                    <div class="col col-12 col-md-5 col-lg-4"> 
+                        <h3 class="text-center">Priority</h3> 
+                        <div class="piechart"></div> 
+                    </div> 
+                </div> 
+            </div>
+
+            <div class="modal fade" id="taskModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add New Task</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="taskTitle" class="form-label">Task Title</label>
+                                    <input type="text" class="form-control" id="taskTitle" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="taskOwner" class="form-label">Task Owner</label>
+                                    <select id="taskOwner" class="form-select" required>
+                                        <option value="dionisia">Dionisia</option>
+                                        <option value="christina">Christina</option>
+                                        <option value="kostas">Kostas</option>
+                                        <option value="aggelina">Aggelina</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="taskDueDate" class="form-label">Due Date</label>
+                                    <input type="date" class="form-control" id="taskDueDate" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="taskStatus" class="form-label">Status</label>
+                                    <select id="taskStatus" class="form-select" required>
+                                        <option value="pending">Pending</option>
+                                        <option value="inprogress">In Progress</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="taskDescription" class="form-label">Description</label>
+                                    <textarea class="form-control" id="taskDescription" rows="4" placeholder="What are the key objectives of this task?"></textarea>
+                                </div>
+
+                                <div class="text-end">
+                                    <button type="submit" class="btn btn-primary">Save Task</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="scrolltotop"></div>
+        <div id="import-footer"></div>
     </body>
-</html>
+</html>s
