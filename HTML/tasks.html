@@ -36,7 +36,7 @@
         </div>
 
         <div class="task-management-app">
-            <div class="container task-container">
+            <div class="container">
                 <h2>Task Management</h2>
                 <div class="heading">
                     <div class="content-categories">
@@ -55,6 +55,15 @@
                         <div class="label-wrapper">
                             <input type="radio" name="status" id="opt-4" class="status-option">
                             <label class="category" for="opt-4">Done</label>
+                        </div>
+                    </div>
+                    <div id="participants">
+                        <p class="text-center fw-bold">Participants</p>
+                        <div class="participant-icons">
+                            <img src="../Images/circle_dionisia.png">
+                            <img src="../Images/circle_christina.png">
+                            <img src="../Images/circle_kostas.png">
+                            <img src="../Images/circle_aggelina.png">
                         </div>
                     </div>
                     <button class="task-btn" data-bs-toggle="modal" data-bs-target="#taskModal">
@@ -108,11 +117,10 @@
             <div class="modal fade" id="taskModal" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-
-                    <div class="modal-header">
-                        <h5 class="modal-title">Add New Task</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
+                        <div class="modal-header">
+                            <h5 class="modal-title">Add New Task</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
 
                         <div class="modal-body">
                             <form>
