@@ -14,7 +14,7 @@ function renderEventCard(event) {
       <div class="d-flex justify-content-between align-items-start mb-2">
         <div>
           <h4 class="fw-bold mb-1">${event.title}</h4>
-          <p class="text-muted small mb-0">${new Date(event.date).toLocaleString()}</p>
+          <p class="small mb-0">${new Date(event.date).toLocaleString()}</p>
         </div>
         <div id="cardButtons" class="d-flex gap-2">
           <button class="btn learn-more-btn">Learn More</button>
@@ -65,7 +65,7 @@ $('.modal form').on('submit', function (e) {
   renderEventCard(newEvent);
 
   this.reset();
-  const modal = bootstrap.Modal.getInstance(document.getElementById('eventModal'));
+  const modal = bootstrap.Modal.getInstance($('#eventModal'));
   modal.hide();
 });
 

@@ -121,6 +121,7 @@ body {
 
 .upc-ev {
     font-family: 'Logo-Font';
+    color: var(--logo-text);
 }
 
 .event-card {
@@ -129,6 +130,10 @@ body {
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     padding: 3%;
     transition: all 0.3s ease;
+}
+
+.event-card:not(:first-child) {
+    margin-top: 2vh;
 }
 
 .event-description {
@@ -155,9 +160,13 @@ body {
 
 #addEvent:hover {
     transform: scale(1.05);
-    background-color: rgba(0,0,0,0.9);
+    background-color: var(--button-hover);
 }
 
 #cardButtons button {
     background-color: var(--bg-color-2);
+}
+
+.eventsContainer, .learn-more-btn, .google-calendar-btn , .delete-btn{
+    color: var(--text-color);
 }

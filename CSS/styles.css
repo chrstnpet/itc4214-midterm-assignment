@@ -51,7 +51,7 @@ a {
 	text-decoration: none !important;
 }
 
-a:hover {
+a:hover, .category {
     cursor: pointer !important;
 }
 
@@ -108,7 +108,7 @@ header i {
 .logo-name {
     font-family: 'Logo-Font' !important;
     color: var(--logo-text);
-    font-size: 2rem;
+    font-size: 5vh;
 }
 
 #navigation {

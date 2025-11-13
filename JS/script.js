@@ -165,3 +165,16 @@ $('#fullImgBox').on('wheel', function(e) {
 
     $('#fullImg').css('transform', `scale(${zoomLevel})`);
 });
+
+// ----------------------------------------------------------------------------------------
+// Adding scroll memory for when refreshing the page cause it was a bit annoying to write code and having it always refresh to the top >.<
+window.addEventListener("beforeunload", () => {
+    sessionStorage.setItem("scrollPosition", window.scrollY);
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+    const scrollY = sessionStorage.getItem("scrollPosition");
+    if (scrollY !== null) {
+            window.scrollTo(0, parseInt(scrollY, 10));
+    }
+});
