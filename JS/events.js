@@ -14,12 +14,13 @@ function renderEventCard(event) {
       <div class="d-flex justify-content-between align-items-start mb-2">
         <div>
           <h4 class="fw-bold mb-1">${event.title}</h4>
-          <p class="small mb-0">${new Date(event.date).toLocaleString()}</p>
+          <p class="small mb-0">${new Date(event.date).toLocaleDateString()}</p>
         </div>
         <div id="cardButtons" class="d-flex gap-2">
           <button class="btn learn-more-btn">Learn More</button>
           <button class="btn google-calendar-btn" title="Add to Google Calendar">
             <i class="bi bi-calendar2-plus"></i>
+            Add to Google Calendar
           </button>
           <button class="btn delete-btn">
             <i class="bi bi-trash"></i>
@@ -30,10 +31,6 @@ function renderEventCard(event) {
     </div>
   `;
   $('.eventsContainer').append(card);
-}
-
-function formatDateUTC(date) {
-  return date.toISOString().replace(/[-:]/g,'').split('.')[0] + 'Z';
 }
 
 loadEvents();
@@ -98,14 +95,18 @@ $(document).on('click', '.delete-btn', function () {
 });
 
 
+function formatDateUTC(date) {
+  return date.toISOString().replace(/[-:]/g,'').split('.')[0] + 'Z';
+}
+
 $(document).on('click', '.google-calendar-btn', function () {
   const $card = $(this).closest('.event-card');
   const title = $card.find('h4').text();
   const description = $card.find('.event-description').text();
-  const dateISO = $card.data('date');
-
-  const startDate = new Date(dateISO);
-  const endDate = new Date(startDate.getTime() + 60*60*1000); // 1-hour default
+  
+  // Convert string to Date
+  const startDate = new Date($card.data('date'));
+  const endDate = new Date(startDate.getTime() + 60 * 60 * 1000); // 1-hour default
 
   const start = formatDateUTC(startDate);
   const end = formatDateUTC(endDate);
@@ -113,6 +114,7 @@ $(document).on('click', '.google-calendar-btn', function () {
   const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${start}/${end}&details=${encodeURIComponent(description)}`;
   window.open(url, '_blank');
 });
+
 
 // -------------------------------------------------------------------------------------------
 // Import photos HTML for photo gallery
