@@ -1,3 +1,5 @@
+// --------------------------------------------------------------------------------
+// Main stuff
 const EventManager = {
     events: JSON.parse(localStorage.getItem('events') || '[]'),
 
@@ -16,6 +18,8 @@ const EventManager = {
         localStorage.setItem('events', JSON.stringify(this.events));
     },
 
+    // --------------------------------------------------------------------------------
+    // Creates event card
     renderCard(event) {
         const htmlDescription = marked.parse(event.description);
         const card = `
@@ -47,12 +51,12 @@ const EventManager = {
     }
 };
 
-// -----------------------------------------------
+// --------------------------------------------------------------------------------
 // Initial Load
 EventManager.loadAll();
 
-// -----------------------------------------------
-// Add Event
+// --------------------------------------------------------------------------------
+// Add event through form
 $('.modal form').on('submit', function (e) {
     e.preventDefault();
 
@@ -79,7 +83,7 @@ $('.modal form').on('submit', function (e) {
     modal.hide();
 });
 
-// -----------------------------------------------
+// --------------------------------------------------------------------------------
 // Learn More button
 $(document).on('click', '.learn-more-btn', function () {
     const $btn = $(this);
@@ -94,7 +98,7 @@ $(document).on('click', '.learn-more-btn', function () {
     }
 });
 
-// -----------------------------------------------
+// --------------------------------------------------------------------------------
 // Deleting an event
 $(document).on('click', '.delete-btn', function () {
     const $card = $(this).closest('.event-card');
@@ -107,7 +111,7 @@ $(document).on('click', '.delete-btn', function () {
     });
 });
 
-// -----------------------------------------------
+// --------------------------------------------------------------------------------
 // Google Calendar Integration -> adding the option to add the event to one's google calendar ^_^
 function formatDateUTC(date) {
     return date.toISOString().replace(/[-:]/g,'').split('.')[0] + 'Z';
@@ -128,7 +132,7 @@ $(document).on('click', '.google-calendar-btn', function () {
     window.open(url, '_blank');
 });
 
-// -----------------------------------------------
+// --------------------------------------------------------------------------------
 // Photo Gallery (clicking on photos opens them and we can go through them)
 let galleryImages = [];
 let currentIndex = 0;
@@ -156,6 +160,7 @@ function closeFullImage() {
     $('#fullImg').css('transform', 'scale(1)');
 }
 
+//--------------------------------------------------------------------------------
 // Arrows left and right (they disappear when reaching the first and last image)
 $('#prevImg').click(function() {
     if (currentIndex > 0) {
@@ -178,6 +183,8 @@ function updateArrows() {
     $('#nextImg').css('display', currentIndex === galleryImages.length - 1 ? 'none' : 'flex');
 }
 
+
+// --------------------------------------------------------------------------------
 // Extra: zoom in and out feature while pictures are open 
 let zoomLevel = 1;
 const zoomStep = 0.1;
