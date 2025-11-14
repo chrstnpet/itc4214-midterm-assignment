@@ -19,7 +19,6 @@
 
         <!--Page specific head additions-->
         <link href="../CSS/events.css" type="text/css" rel="stylesheet">
-        <script src="../JS/gallery.js" type="text/javascript" defer></script>
         <script src="../JS/events.js" type="text/javascript" defer></script>
             <!-- Markdown parser -->
             <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
@@ -64,7 +63,7 @@
                             <form>
                                 <div class="mb-3">
                                     <label for="eventTitle" class="form-label">Event Title</label>
-                                    <input type="text" class="form-control" id="eventTitle" required>
+                                    <input type="text" class="form-control" id="eventTitle" maxlength="40" required>
                                 </div>
 
                                 <div class="mb-3">
@@ -74,7 +73,7 @@
 
                                 <div class="mb-3">
                                     <label for="eventDescription" class="form-label">Description</label>
-                                    <textarea class="form-control" id="eventDescription" rows="4" placeholder="Markdown supported"></textarea>
+                                    <textarea class="form-control" id="eventDescription" rows="4" maxlength="1000" placeholder="Markdown supported"></textarea>
                                 </div>
 
                                 <div class="text-end">
