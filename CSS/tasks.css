@@ -80,7 +80,7 @@
     background-color: var(--button-hover);
 }
 
-.task-progress p, .category, .task-btn{
+.task-progress p, .category, .task-btn, .sorting label{
     color: var(--text-color);
 }
 

@@ -213,7 +213,7 @@ $(document).on('click', '.edit-btn', function () {
 // Handling category options
 const radios = $('.status-option');
 const pending = $('#pending-tasks');
-const inProgress = $('#in-progress-tasks');
+const inProgress = $('#inprogress-tasks');
 const done = $('#done-tasks');
 
 function resetCols() {
@@ -244,3 +244,21 @@ radios.on('change', function() {
     }
 });
 
+// --------------------------------------------------------------------------------------------
+// Sorting
+function sortTasks() {
+    const sortedTasks = JSON.parse(localStorage.getItem('tasks'), '[]');
+    sortedTasks.sort((a, b) => a.title.localeCompare(b.title));
+    $('.task-cards.pending, .task-cards.inprogress, .task-cards.done').empty();
+    sortedTasks.forEach(task => renderTaskCard(task));
+}
+
+$('#sortingOptions').on('change', function() {
+    const option = $('#sortingOptions').val();
+
+    if(option === 'random') {
+        return tasks;
+    } else if (option === 'title') {
+        sortTasks();
+    }
+});

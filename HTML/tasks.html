@@ -72,8 +72,8 @@
                 </div>
 
                 <div class="sorting">
-                    <label>Sort by:</label>
-                    <select>
+                    <label for="sortingOptions" class="form-label">Sort by:</label>
+                    <select id="sortingOptions" class="form-select">
                         <option value="random"></option>
                         <option value="title">Title</option>
                         <option value="date">Due Date</option>
@@ -86,7 +86,7 @@
                         <div class="task-cards pending"></div>
                     </div>
 
-                    <div id="in-progress-tasks" class="col col-12 col-sm-12 col-md-6 col-lg-4">
+                    <div id="inprogress-tasks" class="col col-12 col-sm-12 col-md-6 col-lg-4">
                         <h3>In progress</h3>
                         <div class="task-cards inprogress"></div>
                     </div>
@@ -106,7 +106,7 @@
                                 <progress class="progress progress-visualization" max="100%" value=""></progress> 
                             </div> 
                             <div class="task-progress"> 
-                                <p>In Process</p> 
+                                <p>In Progress</p> 
                                 <progress class="progress progress-visualization" max="100%" value=""></progress> 
                             </div> 
                             <div class="task-progress"> 
