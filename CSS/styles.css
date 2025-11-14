@@ -170,9 +170,8 @@ header a:hover {
     border: none;
     background-color: var(--button);
     border-radius: 50%;
-    height: 4vw;
-    width: 4vw;
-    padding: 0;
+    height: 50px;
+    width: 60px;
     position: relative;
     cursor: pointer;
 }
