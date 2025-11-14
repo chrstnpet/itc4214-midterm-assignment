@@ -5,9 +5,11 @@ function loadTasks() {
 }
 
 function saveTasks(tasks) {
-    localStorage.setItem('tasks', JSON.stringify(tasks)); 
+    localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
+loadTasks();
+updateTaskProgress();
 
 // ------------------------------------------------------------------------------------------------
 // Creating cards by adding html code into divs after collecting form information
@@ -39,11 +41,10 @@ function renderTaskCard(task) {
 
     const container = `.task-cards.${task.status}`;
     $(container).append(card);
+    updateTaskProgress();
 
     return card;
 }
-
-loadTasks();
 
 //------------------------------------------------
 // Map for inserting owner icons on cards
@@ -88,8 +89,22 @@ function handleFormSubmit(e) {
         alert('Title, due date, status and priority are required.');
         return;
     }
+    
+    const selectedDate = new Date(date);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    if (selectedDate < today) {
+        alert("Due date cannot be in the past!");
+        return;
+    }
 
     let tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
+
+    if (editTaskId === null && tasks.length >= 20) {
+        alert('Maximum of 20 tasks reached. Please delete at least one task before adding a new one.');
+        return;
+    }
 
     if (editTaskId === null) {
         const newTask = {
@@ -161,7 +176,9 @@ $(document).on('click', '.delete-btn', function () {
     
     $card.slideUp(200, function () { 
         $(this).remove(); 
-    }); 
+    });
+
+    location.reload(true);
 });
 
 // ---------------------------------------------------------------------------
@@ -179,6 +196,8 @@ $(document).on('click', '.complete-btn', function () {
     saveTasks(tasks);
 
     $('#done-tasks').append($card);
+    updateTaskProgress();
+    location.reload(true);
 });
 
 // ------------------------------------------------------------------------------------------
@@ -186,13 +205,12 @@ $(document).on('click', '.complete-btn', function () {
 $(document).on('click', '.edit-btn', function () {
     const $card = $(this).closest('.task-card');
     const taskId = $card.data('id');
-    editTaskId = taskId;  // put form in "Edit mode"
+    editTaskId = taskId;
 
     let tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
     const task = tasks.find(t => t.id === taskId);
     if (!task) return;
 
-    // Fill in the form fields
     $('#taskTitle').val(task.title);
     $('#taskOwner').val(task.ownerName);
     $('#taskDueDate').val(task.date);
@@ -200,12 +218,11 @@ $(document).on('click', '.edit-btn', function () {
     $('#taskStatus').val(task.status);
     $('#taskPriority').val(task.priority);
 
-    // Reset submit handler and reattach the unified one
     $('#taskModal form').off('submit').on('submit', handleFormSubmit);
 
-    // Open the modal
     const modal = new bootstrap.Modal(document.querySelector('#taskModal'));
     modal.show();
+    updateTaskProgress();
 });
 
 
@@ -223,10 +240,6 @@ function resetCols() {
 }
 
 radios.on('change', function() {
-    pending.hide();
-    inProgress.hide();
-    done.hide();
-
     if ($('#opt-1').is(':checked')) {
         pending.show().removeClass().addClass('col col-12 col-md-6 col-lg-4');
         inProgress.show().removeClass().addClass('col col-12 col-md-6 col-lg-4');
@@ -234,31 +247,91 @@ radios.on('change', function() {
         $('.task-card').css({ padding: '4%', height: 'none' });
     } else if ($('#opt-2').is(':checked')) {
         pending.show().removeClass().addClass('col col-12');
+        inProgress.hide().removeClass().addClass('display: none;');
+        done.hide().removeClass().addClass('display: none;');
         $('.task-card').css({ padding: '2%', height: '20vh' });
     } else if ($('#opt-3').is(':checked')) {
         inProgress.show().removeClass().addClass('col col-12');
+        pending.hide().removeClass().addClass('display: none;');
+        done.hide().removeClass().addClass('display: none;');
         $('.task-card').css({ padding: '2%', height: '20vh' });
     } else if ($('#opt-4').is(':checked')) {
         done.show().removeClass().addClass('col col-12');
+        inProgress.hide().removeClass().addClass('display: none;');
+        pending.hide().removeClass().addClass('display: none;');
         $('.task-card').css({ padding: '2%', height: '20vh' });
     }
 });
 
 // --------------------------------------------------------------------------------------------
 // Sorting
-function sortTasks() {
-    const sortedTasks = JSON.parse(localStorage.getItem('tasks'), '[]');
-    sortedTasks.sort((a, b) => a.title.localeCompare(b.title));
+function sortTasks(sortoption) {
+    const tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
+
+    if(sortoption === 'date') {
+        tasks.sort((a, b) => new Date(a.date) - new Date(b.date));
+    } else if (sortoption === 'title') {
+        tasks.sort((a, b) => a.title.localeCompare(b.title));
+    }
+
     $('.task-cards.pending, .task-cards.inprogress, .task-cards.done').empty();
-    sortedTasks.forEach(task => renderTaskCard(task));
+    tasks.forEach(task => renderTaskCard(task));
 }
 
 $('#sortingOptions').on('change', function() {
     const option = $('#sortingOptions').val();
 
     if(option === 'random') {
-        return tasks;
-    } else if (option === 'title') {
-        sortTasks();
+        location.reload(true);
+    } else {
+        sortTasks(option);
     }
 });
+
+// ----------------------------------------------------------------------------------
+// Counting tasks for dashboard
+function updateTaskProgress() {
+    const tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
+    const total = tasks.length;
+
+    if (total === 0) {
+        return;
+    }
+
+    //Counting for bar chart
+    const pendingCount = tasks.filter(t => t.status === 'pending').length;
+    const inProgressCount = tasks.filter(t => t.status === 'inprogress').length;
+    const doneCount = tasks.filter(t => t.status === 'done').length;
+
+    const pendingPercent = total ? Math.round((pendingCount / total) * 100) : 0;
+    const inProgressPercent = total ? Math.round((inProgressCount / total) * 100) : 0;
+    const donePercent = total ? Math.round((doneCount / total) * 100) : 0;
+
+    $('#dashboard .task-progress:nth-child(1) progress').attr('value', pendingPercent);
+    $('#dashboard .task-progress:nth-child(2) progress').attr('value', inProgressPercent);
+    $('#dashboard .task-progress:nth-child(3) progress').attr('value', donePercent);
+
+    $('#dashboard .task-progress:nth-child(1) p').text(`Pending: ${pendingPercent}%`);
+    $('#dashboard .task-progress:nth-child(2) p').text(`In Progress: ${inProgressPercent}%`);
+    $('#dashboard .task-progress:nth-child(3) p').text(`Done: ${donePercent}%`);
+
+    //Counting for pie-chart
+    const highCount = tasks.filter(t => t.priority === 'high').length;
+    const mediumCount = tasks.filter(t => t.priority === 'medium').length;
+    const lowCount = tasks.filter(t => t.priority === 'low').length;
+
+    const highPercent = (highCount / total) * 100;
+    const mediumPercent = (mediumCount / total) * 100;
+
+    const highDeg = (highPercent / 100) * 360;
+    const mediumDeg = (mediumPercent / 100) * 360;
+
+    const pieGradient = `
+        conic-gradient(
+            var(--high) 0deg ${highDeg}deg,
+            var(--medium) ${highDeg}deg ${highDeg + mediumDeg}deg,
+            var(--low) ${highDeg + mediumDeg}deg 360deg
+        )
+    `;
+    document.querySelector('.piechart').style.backgroundImage = pieGradient;
+}

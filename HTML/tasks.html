@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="description" content="Lounge Seminar Task Management Website for ITC4214 Midterm Assignment">
@@ -71,7 +71,7 @@
                     </button>
                 </div>
 
-                <div class="sorting">
+                <div class="sorting d-flex gap-2">
                     <label for="sortingOptions" class="form-label">Sort by:</label>
                     <select id="sortingOptions" class="form-select">
                         <option value="random"></option>
@@ -98,28 +98,30 @@
                 </div>
 
                 <div id="dashboard" class="row justify-content-center"> 
-                    <div class="col col-12 col-md-6 col-lg-4"> 
+                    <div class="col col-12 col-md-4 col-lg-3 d-flex flex-column align-items-center"> 
                         <h3>Tasks Status</h3> 
                         <div class="bar-charts"> 
                             <div class="task-progress"> 
-                                <p>Pending</p> 
-                                <progress class="progress progress-visualization" max="100%" value=""></progress> 
+                                <p></p> 
+                                <progress class="progress" max="100" value=""></progress> 
                             </div> 
                             <div class="task-progress"> 
-                                <p>In Progress</p> 
-                                <progress class="progress progress-visualization" max="100%" value=""></progress> 
+                                <p></p> 
+                                <progress class="progress" max="100" value=""></progress> 
                             </div> 
                             <div class="task-progress"> 
-                                <p>Done</p> 
-                                <progress class="progress progress-visualization" max="100%" value=""></progress> 
+                                <p></p> 
+                                <progress class="progress" max="100" value=""></progress> 
                             </div> 
                         </div> 
                     </div>
 
-                    <div class="col col-12 col-md-5 col-lg-4"> 
+                    <div class="col col-12 col-md-4 col-lg-3"> 
                         <h3 class="text-center">Priority</h3> 
-                        <div class="piechart"></div> 
-                    </div> 
+                        <div class="piechart">
+                            <div class="center-label">100%</div>
+                        </div>
+                    </div>
                 </div> 
             </div>
 
@@ -135,7 +137,7 @@
                             <form>
                                 <div class="mb-3">
                                     <label for="taskTitle" class="form-label">Task Title</label>
-                                    <input type="text" class="form-control" id="taskTitle" required>
+                                    <input type="text" class="form-control" id="taskTitle" maxlength="40" required>
                                 </div>
 
                                 <div class="mb-3">
@@ -172,7 +174,7 @@
 
                                 <div class="mb-3">
                                     <label for="taskDescription" class="form-label">Description</label>
-                                    <textarea class="form-control" id="taskDescription" rows="4" placeholder="What are the key objectives of this task?"></textarea>
+                                    <textarea class="form-control" id="taskDescription" rows="4" maxlength="1000" placeholder="What are the key objectives of this task?"></textarea>
                                 </div>
 
                                 <div class="text-end">
@@ -188,4 +190,4 @@
         <div id="scrolltotop"></div>
         <div id="import-footer"></div>
     </body>
-</html>s
+</html>
