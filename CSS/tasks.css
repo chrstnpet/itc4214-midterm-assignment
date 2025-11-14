@@ -138,7 +138,7 @@
 }
 
 .task-card, #cardButtons button {
-    color: var(--text-color); !important
+    color: var(--text-color);
 }
 
 #cardButtons {
