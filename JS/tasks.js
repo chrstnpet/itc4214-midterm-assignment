@@ -1,3 +1,4 @@
+// Load and save tasks to local storage functions
 function loadTasks() { 
     const tasks = JSON.parse(localStorage.getItem('tasks') || '[]'); 
     tasks.forEach(task => renderTaskCard(task)); 
@@ -7,6 +8,9 @@ function saveTasks(tasks) {
     localStorage.setItem('tasks', JSON.stringify(tasks)); 
 }
 
+
+// ------------------------------------------------------------------------------------------------
+// Creating cards by adding html code into divs after collecting form information
 function renderTaskCard(task) {
     const htmlDescription = marked.parse(task.description); 
     const card = $(`
@@ -26,7 +30,7 @@ function renderTaskCard(task) {
                 <div class="owner-icon"> 
                     <img src="${task.owner}"> 
                 </div>
-                <p class="priority-label" style="background-color:${task.priorityColor}; color:black;">${task.priority}</p>
+                <p class="priority-label" style="background-color:var(--${task.priority}); color:black;">${task.priority}</p>
                 <button class="btn complete-btn fs-4"><i class="bi bi-check-square-fill"></i></button> 
             </div>
             <div class="task-description" style="display:none;">${htmlDescription}</div>
@@ -41,6 +45,8 @@ function renderTaskCard(task) {
 
 loadTasks();
 
+//------------------------------------------------
+// Map for inserting owner icons on cards
 const ownerMap = {
     dionisia: "../Images/circle_dionisia.png",
     christina: "../Images/circle_christina.png", 
@@ -48,50 +54,89 @@ const ownerMap = {
     aggelina: "../Images/circle_aggelina.png"
 }
 
+// Map for inserting priority bubble colors on cards
 const priorityMap = {
     low: 'var(--low)',
     medium: 'var(--medium)',
     high: 'var(--high)'
 }
 
-$('#taskModal form').on('submit', function(e) { 
-    e.preventDefault(); 
-    
-    const title = $('#taskTitle').val().trim(); 
-    const ownerName = $('#taskOwner').val(); 
-    const date = $('#taskDueDate').val(); 
+//-----------------------------------------------------------
+// Add task button event listener
+$('.task-btn').on('click', function () {
+    editTaskId = null;
+    $('#taskModal form')[0].reset();
+
+    $('#taskModal form').off('submit');
+
+    $('#taskModal form').on('submit', handleFormSubmit);
+});
+
+//-----------------------------------------------------------
+// Taking information from form modal to create new task card
+function handleFormSubmit(e) {
+    e.preventDefault();
+
+    const title = $('#taskTitle').val().trim();
+    const ownerName = $('#taskOwner').val();
+    const date = $('#taskDueDate').val();
     const description = $('#taskDescription').val();
     const status = $('#taskStatus').val();
     const priority = $('#taskPriority').val();
-    
-    if(!title || !date || !status) { 
-        alert('Title, due date, status and priority are required.'); 
-        return; 
-    } 
-    
-    const newTask = { 
-        id: Date.now(), 
-        title, 
-        owner: ownerMap[ownerName], 
-        ownerName,
-        date, 
-        description,
-        status,
-        priority,
-        priorityColor: priorityMap[priority]
-    }; 
-    
-    const tasks = JSON.parse(localStorage.getItem('tasks') || '[]' );
-    tasks.push(newTask); 
-    saveTasks(tasks); 
-    
-    renderTaskCard(newTask); 
-    
-    this.reset(); 
-    const modal = bootstrap.Modal.getInstance(document.querySelector('#taskModal')); 
-    modal.hide(); 
-});
 
+    if (!title || !date || !status || !priority) {
+        alert('Title, due date, status and priority are required.');
+        return;
+    }
+
+    let tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
+
+    if (editTaskId === null) {
+        const newTask = {
+            id: Date.now(),
+            title,
+            owner: ownerMap[ownerName],
+            ownerName,
+            date,
+            description,
+            status,
+            priority,
+            priorityColor: priorityMap[priority]
+        };
+
+        tasks.push(newTask);
+        saveTasks(tasks);
+        renderTaskCard(newTask);
+
+    } else {
+        const task = tasks.find(t => t.id === editTaskId);
+        if (!task) return;
+
+        // Update task fields
+        task.title = title;
+        task.owner = ownerMap[ownerName];
+        task.ownerName = ownerName;
+        task.date = date;
+        task.description = description;
+        task.status = status;
+        task.priority = priority;
+        task.priorityColor = priorityMap[priority];
+
+        saveTasks(tasks);
+
+        $(`.task-card[data-id="${editTaskId}"]`).remove();
+        renderTaskCard(task);
+    }
+
+    $('#taskModal form')[0].reset();
+    const modal = bootstrap.Modal.getInstance(document.querySelector('#taskModal'));
+    modal.hide();
+}
+
+$('#taskModal form').on('submit', handleFormSubmit);
+
+//------------------------------------------------------------------------------------------
+// Displaying details of task on clicking learn more button
 $(document).on('click', '.learn-more-btn', function () { 
     const $btn = $(this); 
     const $desc = $btn.closest('.task-card').find('.task-description'); 
@@ -104,7 +149,8 @@ $(document).on('click', '.learn-more-btn', function () {
     } 
 });
 
-
+//--------------------------------------------------------------------------
+// Deleting tasks on click of delete button
 $(document).on('click', '.delete-btn', function () { 
     const $card = $(this).closest('.task-card'); 
     const taskId = $card.data('id'); 
@@ -118,6 +164,8 @@ $(document).on('click', '.delete-btn', function () {
     }); 
 });
 
+// ---------------------------------------------------------------------------
+// Marking tasks as done by clicking the 'check' button
 $(document).on('click', '.complete-btn', function () {
     const $card = $(this).closest('.task-card');
     const taskId = $card.data('id');
@@ -131,102 +179,38 @@ $(document).on('click', '.complete-btn', function () {
     saveTasks(tasks);
 
     $('#done-tasks').append($card);
-
-    $card.closest('.col').removeClass().addClass('col col-12 col-sm-12 col-md-6 col-lg-4');
 });
 
+// ------------------------------------------------------------------------------------------
+// Editing card content
+$(document).on('click', '.edit-btn', function () {
+    const $card = $(this).closest('.task-card');
+    const taskId = $card.data('id');
+    editTaskId = taskId;  // put form in "Edit mode"
 
-$(document).on('click', '.edit-btn', function () { 
-    const $card = $(this).closest('.task-card'); 
-    const taskId = $card.data('id'); 
-    
     let tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
-    const task = tasks.find(t => t.id === taskId); 
-    if (!task) return; 
-    
-    $('#taskTitle').val(task.title); 
+    const task = tasks.find(t => t.id === taskId);
+    if (!task) return;
+
+    // Fill in the form fields
+    $('#taskTitle').val(task.title);
     $('#taskOwner').val(task.ownerName);
-    $('#taskDueDate').val(task.date); 
-    $('#taskDescription').val(task.description); 
+    $('#taskDueDate').val(task.date);
+    $('#taskDescription').val(task.description);
     $('#taskStatus').val(task.status);
     $('#taskPriority').val(task.priority);
-    
-    const modalEl = document.querySelector('#taskModal'); 
-    const modal = new bootstrap.Modal(modalEl); 
-    modal.show(); 
-    
-    $('#taskModal form').off('submit').on('submit', function (e) { 
-        e.preventDefault(); 
-        
-        const updatedTitle = $('#taskTitle').val().trim(); 
-        const updatedOwnerName = $('#taskOwner').val(); 
-        const updatedDate = $('#taskDueDate').val(); 
-        const updatedDescription = $('#taskDescription').val(); 
-        const updatedStatus = $('#taskStatus').val();
-        const updatedPriority = $('#taskPriority').val();
-        const updatedPriorityColor = priorityMap[$('#taskPriority').val()];
-        
-        if (!updatedTitle || !updatedDate || !updatedStatus || !updatedPriority) { 
-            alert('Title, due date, status and priority are required.'); 
-            return; 
-        } 
-        
-        task.title = updatedTitle; 
-        task.owner = ownerMap[updatedOwnerName]; 
-        task.ownerName = updatedOwnerName; 
-        task.date = updatedDate;
-        task.description = updatedDescription; 
-        task.status = updatedStatus;
-        task.priority = updatedPriority;
-        task.priorityColor = updatedPriorityColor;
-        
 
-        saveTasks(tasks); 
+    // Reset submit handler and reattach the unified one
+    $('#taskModal form').off('submit').on('submit', handleFormSubmit);
 
-        $card.remove(); 
-        renderTaskCard(task); 
-        modal.hide(); 
-        
-        $('#taskModal form').off('submit').on('submit', function(e){ 
-            e.preventDefault(); 
-            
-            const title = $('#taskTitle').val().trim(); 
-            const ownerName = $('#taskOwner').val(); 
-            const date = $('#taskDueDate').val(); 
-            const description = $('#taskDescription').val(); 
-            const status = $('#taskStatus').val(); 
-            const priority = $('#tasksPriority').val();
-            
-            if(!title || !date || !status || !priority) { 
-                alert('Title, due date, status and priority are required.'); 
-                return; 
-            } 
-            
-            const newTask = { 
-                id: Date.now(), 
-                title, 
-                owner: ownerMap[ownerName], 
-                ownerName,
-                date, 
-                description, 
-                status,
-                priority,
-                priorityColor: priorityMap[priority]
-            }; 
-            
-            const tasks = JSON.parse(localStorage.getItem('tasks') || '[]'); 
-            tasks.push(newTask); 
-            saveTasks(tasks); 
-            
-            renderTaskCard(newTask); 
-            
-            this.reset(); 
-            const modal = bootstrap.Modal.getInstance(document.querySelector('#taskModal')); 
-            modal.hide(); 
-        }); 
-    }); 
+    // Open the modal
+    const modal = new bootstrap.Modal(document.querySelector('#taskModal'));
+    modal.show();
 });
 
+
+// ----------------------------------------------------------------------------------
+// Handling category options
 const radios = $('.status-option');
 const pending = $('#pending-tasks');
 const inProgress = $('#in-progress-tasks');
@@ -259,3 +243,4 @@ radios.on('change', function() {
         $('.task-card').css({ padding: '2%', height: '20vh' });
     }
 });
+
