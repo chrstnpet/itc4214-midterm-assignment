@@ -23,6 +23,9 @@
     --high: #c83c35;
     --medium: #fb7d17;
     --low: #13a11f;
+
+    --bar: #221546;
+    --bar2: rgb(130, 130, 130);
 }
 
 .darkmode {
@@ -42,6 +45,9 @@
     --high: #FA362D;
     --medium: #FAA764;
     --low: #77F782;
+
+    --bar: rgb(197, 197, 197);
+    --bar2: rgb(80,80,80);
 }
 
 /* -------------------- General -------------------- */
@@ -92,7 +98,7 @@ header img {
 
 header a {
     color: var(--logo-text);
-	margin-right: 50px;
+	margin-right: 4vw;
     font-weight: bold;
     align-items: center;
     height: 100%;
