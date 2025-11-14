@@ -10,6 +10,10 @@
     background-color: var(--bg-color-2);
 }
 
+.row h3 {
+    margin-top: 30px;
+}
+
 /* ----------------------------- Heading ----------------------------- */
 .heading {
     display: flex;
@@ -35,7 +39,6 @@
 }
 
 .category {
-    font-weight: 500;
     transition: 0.2s ease;
 }
 
@@ -43,7 +46,7 @@
 #opt-2:checked + label,
 #opt-3:checked + label,
 #opt-4:checked + label {
-    color: var(--subtext-color);
+    font-weight: bold;
     border-bottom: 2px solid var(--text-color);
 }
 
@@ -120,21 +123,16 @@
     }
 }
 
-
-/*----------------*/
-.row h3 {
-    margin-top: 30px;
-}
-
 /*--------------------------------------------------------------*/
 /*------------------------ Task cards ------------------------- */
 .task-card {
     background-color: var(--bg-color);
-    padding: 3%;
-    border-radius: 20px;
+    padding: 4%;
+    border-radius: 15px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
-    margin: 4% 0;
+    margin: 2% 0;
+    width: 100%;
 }
 
 .task-card, #cardButtons button {
@@ -157,6 +155,11 @@
     color: var(--text-color);
 }
 
+.priority-label {
+    padding: 1% 5%;
+    border-radius: 20px;
+}
+
 .task-description {
     display: none;
     border-top: 1px solid var(--logo-text);
@@ -167,6 +170,7 @@
     width: 2.5rem;
     margin-top: 5px;
     margin-right: 0;
+    margin-bottom: 10px;
 }
 
 /* ------------------------------------------------------------ */

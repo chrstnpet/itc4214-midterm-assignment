@@ -26,6 +26,7 @@ function renderTaskCard(task) {
                 <div class="owner-icon"> 
                     <img src="${task.owner}"> 
                 </div>
+                <p class="priority-label" style="background-color:${task.priorityColor}; color:black;">${task.priority}</p>
                 <button class="btn complete-btn fs-4"><i class="bi bi-check-square-fill"></i></button> 
             </div>
             <div class="task-description" style="display:none;">${htmlDescription}</div>
@@ -47,6 +48,12 @@ const ownerMap = {
     aggelina: "../Images/circle_aggelina.png"
 }
 
+const priorityMap = {
+    low: 'var(--low)',
+    medium: 'var(--medium)',
+    high: 'var(--high)'
+}
+
 $('#taskModal form').on('submit', function(e) { 
     e.preventDefault(); 
     
@@ -55,9 +62,10 @@ $('#taskModal form').on('submit', function(e) {
     const date = $('#taskDueDate').val(); 
     const description = $('#taskDescription').val();
     const status = $('#taskStatus').val();
+    const priority = $('#taskPriority').val();
     
     if(!title || !date || !status) { 
-        alert('Title, due date and status are required.'); 
+        alert('Title, due date, status and priority are required.'); 
         return; 
     } 
     
@@ -68,7 +76,9 @@ $('#taskModal form').on('submit', function(e) {
         ownerName,
         date, 
         description,
-        status
+        status,
+        priority,
+        priorityColor: priorityMap[priority]
     }; 
     
     const tasks = JSON.parse(localStorage.getItem('tasks') || '[]' );
@@ -139,6 +149,7 @@ $(document).on('click', '.edit-btn', function () {
     $('#taskDueDate').val(task.date); 
     $('#taskDescription').val(task.description); 
     $('#taskStatus').val(task.status);
+    $('#taskPriority').val(task.priority);
     
     const modalEl = document.querySelector('#taskModal'); 
     const modal = new bootstrap.Modal(modalEl); 
@@ -152,9 +163,11 @@ $(document).on('click', '.edit-btn', function () {
         const updatedDate = $('#taskDueDate').val(); 
         const updatedDescription = $('#taskDescription').val(); 
         const updatedStatus = $('#taskStatus').val();
+        const updatedPriority = $('#taskPriority').val();
+        const updatedPriorityColor = priorityMap[$('#taskPriority').val()];
         
-        if (!updatedTitle || !updatedDate || !updatedStatus) { 
-            alert('Title, due date, and status are required.'); 
+        if (!updatedTitle || !updatedDate || !updatedStatus || !updatedPriority) { 
+            alert('Title, due date, status and priority are required.'); 
             return; 
         } 
         
@@ -164,6 +177,8 @@ $(document).on('click', '.edit-btn', function () {
         task.date = updatedDate;
         task.description = updatedDescription; 
         task.status = updatedStatus;
+        task.priority = updatedPriority;
+        task.priorityColor = updatedPriorityColor;
         
 
         saveTasks(tasks); 
@@ -180,9 +195,10 @@ $(document).on('click', '.edit-btn', function () {
             const date = $('#taskDueDate').val(); 
             const description = $('#taskDescription').val(); 
             const status = $('#taskStatus').val(); 
+            const priority = $('#tasksPriority').val();
             
-            if(!title || !date || !status) { 
-                alert('Title, due date and status are required.'); 
+            if(!title || !date || !status || !priority) { 
+                alert('Title, due date, status and priority are required.'); 
                 return; 
             } 
             
@@ -193,7 +209,9 @@ $(document).on('click', '.edit-btn', function () {
                 ownerName,
                 date, 
                 description, 
-                status 
+                status,
+                priority,
+                priorityColor: priorityMap[priority]
             }; 
             
             const tasks = JSON.parse(localStorage.getItem('tasks') || '[]'); 
@@ -229,11 +247,15 @@ radios.on('change', function() {
         pending.show().removeClass().addClass('col col-12 col-md-6 col-lg-4');
         inProgress.show().removeClass().addClass('col col-12 col-md-6 col-lg-4');
         done.show().removeClass().addClass('col col-12 col-md-6 col-lg-4');
+        $('.task-card').css({ padding: '4%', height: 'none' });
     } else if ($('#opt-2').is(':checked')) {
         pending.show().removeClass().addClass('col col-12');
+        $('.task-card').css({ padding: '2%', height: '20vh' });
     } else if ($('#opt-3').is(':checked')) {
         inProgress.show().removeClass().addClass('col col-12');
+        $('.task-card').css({ padding: '2%', height: '20vh' });
     } else if ($('#opt-4').is(':checked')) {
         done.show().removeClass().addClass('col col-12');
+        $('.task-card').css({ padding: '2%', height: '20vh' });
     }
 });
