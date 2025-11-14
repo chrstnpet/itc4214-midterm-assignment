@@ -278,9 +278,14 @@ hr {
 
 /* -------------------- Scroll to top button -------------------- */
 
+#scrolltotop {
+    background-color: var(--bg-color-2);
+    padding: 2%;
+}
+
 .scroll-top {
     right: 2.5%;
-    top: 90%;
+    bottom: 5%;
     color: var(--button-hover);
     text-shadow: 0 0 10px var(--shadow-2),
         0 0 10px var(--shadow-2),
