@@ -1,11 +1,10 @@
-/* Font imports */
+/* -------------------- Font Imports -------------------- */
 @font-face {
     font-family: 'Logo-Font';
     src: url(./PermanentMarker-Regular.ttf);
 }
 
-/* Color scheme */
-
+/* -------------------- Color Variables -------------------- */
 :root {
     --text-color: #1a1a1a;
     --subtext-color: rgb(85, 85, 85);
@@ -19,11 +18,9 @@
     --bg-color-3: rgba(121, 121, 121, 0.5);
     --shadow: rgba(255, 255, 255, 0.9);
     --shadow-2: rgb(37, 35, 73);
-
     --high: #c83c35;
     --medium: #fb7d17;
     --low: #13a11f;
-
     --bar: #221546;
     --bar2: rgb(130, 130, 130);
 }
@@ -41,41 +38,33 @@
     --bg-color-3: rgba(4,9,30,0.5);
     --shadow: rgba(0,0,0,0.9);
     --shadow-2: rgba(255,255,255,0.9);
-
     --high: #FA362D;
     --medium: #FAA764;
     --low: #77F782;
-
     --bar: rgb(197, 197, 197);
     --bar2: rgb(80,80,80);
 }
 
-/* -------------------- General -------------------- */
-
+/* -------------------- Global Styles -------------------- */
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
-
 html {
     min-height: 100%;
 }
-
-a {
-	text-decoration: none !important;
+body {
+    font-family: Arial, Helvetica, sans-serif;
 }
-
+a {
+    text-decoration: none !important;
+}
 a:hover, .category {
     cursor: pointer !important;
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif !important;
-}
-
-
 /* -------------------- Header -------------------- */
-
 header {
     display: flex;
     justify-content: space-between;
@@ -85,86 +74,59 @@ header {
     width: 100%;
     top: 0;
     left: 0;
-    box-sizing: border-box;
     box-shadow: 0 0 10px black;
     z-index: 1000;
+    position: fixed;
 }
-
 header img {
     width: 7%;
     height: auto;
     min-width: 4rem;
 }
-
 header a {
     color: var(--logo-text);
-	margin-right: 4vw;
+    margin-right: 4vw;
     font-weight: bold;
     align-items: center;
-    height: 100%;
 }
-
 #logo a {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
-
-header a:hover {
-	color: var(--hover-text);
-	transition: all 0.3s ease 0;
-}
-
-header i {
-    fill: var(--logo-text);
-}
-
 .logo-name {
-    font-family: 'Logo-Font' !important;
+    font-family: 'Logo-Font';
     color: var(--logo-text);
     font-size: 5vh;
 }
-
+header a:hover {
+    color: var(--hover-text);
+    transition: all 0.3s ease;
+}
 #navigation {
     display: flex;
     gap: 2rem;
+    align-items: center;
 }
 
-#navigation a {
-    margin-top: 15px;
-}
-
-
-/* -------------------- Toggle menu collapse media -------------------- */
-
+/* -------------------- Sidebar Toggle -------------------- */
 .links-container {
-    height: 100%;
-    width: 100%;
     display: inline-flex;
     align-items: center;
+    height: 100%;
+    width: 100%;
     position: relative;
-    margin-top: 0;
 }
-
-#check {
-    display: none;
+#check { 
+    display: none; 
 }
-
 .open-sidebar-button, .close-sidebar-button {
     display: none;
     color: var(--logo-text);
 }
-
-@media (max-width: 545px) {
-    .logo-name {
-        display: none;
-    }
-}
-
 @media (max-width: 1100px) {
     .links-container {
         flex-direction: column;
-        align-items: flex-start;
         position: fixed;
         top: 0;
         right: -100%;
@@ -173,38 +135,34 @@ header i {
         background-color: var(--bg-color);
         box-shadow: -5px 0 5px rgba(0,0,0,0.25);
         transition: 0.5s ease-out;
+        padding-top: 5%;
     }
-
     .links-container a {
-        box-sizing: border-box;
-        height: auto;
         width: 100%;
         padding: 5% 10%;
         justify-content: flex-start;
     }
-
-    .open-sidebar-button, .close-sidebar-button {
-        right: 0;
-        display: block;
-        font-size: 2.5rem;
-    }
-
-    .close-sidebar-button {
-        padding: 5% 6%;
-    }
-
-    #check:checked ~.links-container {
+    #check:checked ~ .links-container { 
         right: 0;
     }
-
-    #logo {
-        margin-left: auto;
+    .open-sidebar-button, .close-sidebar-button { 
+        display: block; 
+        font-size: 2.5rem; 
+    }
+    .close-sidebar-button { 
+        padding: 5% 6%; 
+    }
+    #logo { 
+        margin-left: auto; 
     }
 }
+@media (max-width: 550px) { 
+    .logo-name { 
+        display: none; 
+    } 
+}
 
-
-/* -------------------- Dark-mode implementation -------------------- */
-
+/* -------------------- Theme Switch -------------------- */
 #theme-switch {
     display: flex;
     justify-content: center;
@@ -212,83 +170,60 @@ header i {
     border: none;
     background-color: var(--button);
     border-radius: 50%;
-    height: 3rem;
-    width: 3rem;
+    height: 4vw;
+    width: 4vw;
     padding: 0;
-    box-sizing: border-box;
-    flex-shrink: 0;
+    position: relative;
+    cursor: pointer;
 }
-
 #theme-switch i {
     color: var(--logo-text);
     position: absolute;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    opacity: 1;
     font-size: 1.25rem;
+    opacity: 1;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
-
 #theme-switch i:last-child {
     opacity: 0;
 }
-
-.darkmode #theme-switch i:first-child {
-    opacity: 1;
-}
-
-/* Icon Animation on change */
 .darkmode #theme-switch i:first-child {
     opacity: 0;
     transform: rotate(-180deg);
 }
-
 .darkmode #theme-switch i:last-child {
     opacity: 1;
     transform: rotate(180deg);
 }
 
 
-/* -------------------- Footer styles -------------------- */
-
-.col h3, .col h4 {
-    font-family: 'Logo-Font' !important;
-    color: var(--logo-text);
-}
-
-.col-6 .sub-motto {
-    color: var(--subtext-color);
-}
-
-.list-unstyled a {
-    color: var(--text-color);
-    line-height: 1.8;
-}
-
-.icon-links{
-    color: var(--logo-text);
-    text-decoration: none;
-}
-
+/* -------------------- Footer -------------------- */
 footer {
     background-color: var(--bg-color);
 }
-
-.copyright {
-    color: var(--subtext-color);
+footer h3, footer h4 { 
+    font-family: 'Logo-Font'; 
+    color: var(--logo-text); 
+}
+footer .sub-motto { 
+    color: var(--subtext-color); 
+}
+footer .list-unstyled a { 
+    color: var(--text-color); 
+    line-height: 1.8; 
+}
+footer .icon-links { 
+    color: var(--logo-text); 
+    text-decoration: none; 
+}
+footer .copyright { 
+    color: var(--subtext-color); 
 }
 
-hr {
-    color: var(--subtext-color) !important;
-}
-
-
-
-/* -------------------- Scroll to top button -------------------- */
-
+/* -------------------- Scroll to top -------------------- */
 #scrolltotop {
     background-color: var(--bg-color-2);
     padding: 2%;
 }
-
 .scroll-top {
     right: 2.5%;
     bottom: 5%;
@@ -300,24 +235,20 @@ hr {
     animation-name: appear;
     animation-timeline: scroll(y);
 }
-
 @keyframes appear {
     0% {
         opacity: 0;
         display: none;
         position: fixed;
     }
-
     3% {
         opacity: 0;
         display: block;
     }
-
     3.5% {
         opacity: 1;
         display: block;
     }
-
     100% {
         opacity: 1;
         display: block;
@@ -325,53 +256,25 @@ hr {
     }
 }
 
-/* ----------------- Titles on pages -----------------*/
-.page-title {
-    width: 100vw;
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    max-height: 100vh;
+/* -------------------- Page Titles -------------------- */
+.page-title, .carousel-overlay-text { 
+    position: relative; 
+    background-size: cover; 
+    background-position: center; 
+    max-height: 100vh; 
 }
-
-.page-title-content, .carousel-overlay-text {
-    position: absolute;
-    top: 70%;
-    left: 7%;
-    text-align: left;
-    color: var(--logo-text);
-    z-index: 2;
-    text-shadow: 0 0 15px var(--shadow),
-        0 0 10px var(--shadow),
-        0 0 10px var(--shadow),
-        0 0 10px var(--shadow);
+.page-title-content, .carousel-overlay-text { 
+    position: absolute; 
+    top: 70%; 
+    left: 7%; 
+    color: var(--logo-text); 
+    text-shadow: 0 0 15px var(--shadow); 
 }
-
-.page-title-content h1, .carousel-overlay-text h1 {
-    font-size: 7vh;
-    font-weight: bold;
-    text-shadow:
-        0 0 5px var(--shadow),
-        0 0 10px var(--shadow),
-        0 0 20px var(--shadow),
-        0 0 40px var(--shadow);
-}
-
-.page-title-content p, .carousel-overlay-text p {
-    font-size: 4vh;
-    text-shadow: 0 0 5px var(--shadow),
-        0 0 5px var(--shadow),
-        0 0 5px var(--shadow),
-        0 0 5px var(--shadow); 
-}
-
 @media (max-width: 850px) {
-    .carousel-overlay-text p, .page-title-content p {
+    .carousel-overlay-text p, .page-title-content p { 
         font-size: 3vw;
     }
-
-    .carousel-overlay-text h1, .page-title-content h1 {
-        font-size: 5vw;
+    .carousel-overlay-text h1, .page-title-content h1 { 
+        font-size: 5vw; 
     }
 }
