@@ -1,39 +1,8 @@
 /* ------------------ Intro ------------------ */
 
-.contact-intro {
-    background-image: linear-gradient(var(--photo-hue)),url(../Images/contact-image.jpg);
-    background-position: center;
-    background-size: cover;
-    height: 100vh;
-    position: relative;
-}
-
-.contact-prompt {
-    position: absolute;
-    top: 65%;
-    left: 5%;
-    transform: tranlateY(-50%);
-    text-align: left;
-    max-width: 90%;
-}
-
-.contact-prompt p {
-    color: var(--logo-text);
-    text-shadow: 0 0 10px var(--shadow),
-        0 0 10px var(--shadow),
-        0 0 10px var(--shadow),
-        0 0 10px var(--shadow);
-    margin: 0.25em 0;
-}
-
-.contact-prompt p:first-child {
-    font-size: clamp(40px,3vw,3vw);
-    font-weight: bold;
-    
-}
-
-.contact-prompt p:last-child {
-    font-size: clamp(20px,1.5vw,1.5vw);
+.page-title {
+    background-image: linear-gradient(var(--photo-hue)),url(../Images/contact-image.png);
+    aspect-ratio: 600 / 300;
 }
 
 /* ------------------ Main Section ------------------ */
