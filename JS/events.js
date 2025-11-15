@@ -64,6 +64,15 @@ $('.modal form').on('submit', function (e) {
     const date = $('#eventDate').val();
     const description = $('#eventDescription').val();
 
+    const selectedDate = new Date(date);
+    const today = new Date();
+    today.setHours(0,0,0,0);
+
+    if(selectedDate < today) {
+        alert("Event can't be set for past date!");
+        return;
+    }
+
     if (!title || !date) {
         alert('Please fill in title and date.');
         return;
