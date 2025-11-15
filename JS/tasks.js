@@ -59,17 +59,23 @@ const TaskManager = {
                         <p class="small mb-0">${new Date(task.date).toLocaleDateString()}</p> 
                     </div>
                     <div id="cardButtons" class="d-flex"> 
-                        <button class="btn learn-more-btn">Details</button> 
-                        <button class="btn delete-btn"><i class="bi bi-trash"></i></button> 
-                        <button class="btn edit-btn"><i class="bi bi-pencil-square"></i></button> 
+                        <button class="btn learn-more-btn" aria-label="Read task objectives">Details</button> 
+                        <button class="btn delete-btn" aria-label="Delete task">
+                            <i class="bi bi-trash" aria-hidden="true"></i>
+                        </button> 
+                        <button class="btn edit-btn" aria-label="Edit task">
+                            <i class="bi bi-pencil-square" aria-hidden="true"></i>
+                        </button> 
                     </div>
                 </div>
                 <div class="d-flex justify-content-between">
                     <div class="owner-icon"> 
-                        <img src="${task.owner}"> 
+                        <img src="${task.owner}" alt="Owner icon"> 
                     </div>
                     <p class="priority-label" style="background-color:var(--${task.priority}); color:black;">${task.priority}</p>
-                    <button class="btn complete-btn fs-4"><i class="bi bi-check-square-fill"></i></button> 
+                    <button class="btn complete-btn fs-4" aria-label="Mark as complete button">
+                        <i class="bi bi-check-square-fill" aria-hidden="true"></i>
+                    </button> 
                 </div>
                 <div class="task-description" style="display:none;">${htmlDescription}</div>
             </div>
