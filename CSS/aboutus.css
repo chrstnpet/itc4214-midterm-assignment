@@ -83,7 +83,7 @@
     padding: 5rem 0;
 }
 #members h1 {
-  font-family: 'Logo-Font';
+  font-family: 'Logo-Font' Arial, Helvetica, sans-serif;
 }
 #members .col p {
     margin: 5px;
@@ -99,7 +99,7 @@
   transform: scale(1.05);
 }
 #members .name, #members .role {
-  font-family: 'Logo-Font';
+  font-family: 'Logo-Font', Arial, Helvetica, sans-serif;
   text-align: center;
 }
 #members .name {

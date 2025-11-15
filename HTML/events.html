@@ -26,6 +26,7 @@
         <script src="../JS/events.js" type="text/javascript" defer></script>
             <!-- Markdown parser -->
             <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        <link rel="preload" fetchpriority="high" as="image" href="../Images/event-title.jpeg" type="image/JPG">
     
         <title>Events</title>
     </head>
@@ -40,13 +41,13 @@
         </div>
 
         <p class="jump-to">
-            Jump to: <a href="#img-gallery">Photo Gallery</a> | <a href="#video-gallery">YouTube Videos</a>
+            Jump to: <a href="#img-gallery" aria-label="Jump to Photo Gallery">Photo Gallery</a> | <a href="#video-gallery" aria-label="Jump to YouTube videos">YouTube Videos</a>
         </p>
 
         <!--Calendar for future events-->
         <div class="container my-5">
             <div class="d-flex justify-content-between align-items-center mb-4">
-                <h2 class="upc-ev">Upcoming Events</h2>
+                <h2 class="upc-ev fs-2">Upcoming Events</h2>
                 <button id="addEvent" data-bs-toggle="modal" data-bs-target="#eventModal">
                     <i class="bi bi-plus-lg"></i> 
                     Add Event
@@ -55,11 +56,11 @@
             
             <div class="eventsContainer"></div>
 
-            <div class="modal fade" id="eventModal" tabindex="-1" aria-hidden="true">
+            <div class="modal fade" id="eventModal" tabindex="-1">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title">Add New Event</h5>
+                            <h2 class="modal-title fs-5">Add New Event</h2>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                         </div>
 
@@ -94,29 +95,29 @@
 
         <!-- Photo Gallery -->
          <div class="full-img" id="fullImgBox">
-            <i class="bi bi-chevron-left fs-1" id="prevImg"></i>
-            <img id="fullImg" src="">
-            <i onclick="closeFullImage()" class="bi bi-x fs-1"></i>
-            <i class="bi bi-chevron-right fs-1" id="nextImg"></i>
+            <i class="bi bi-chevron-left fs-1" id="prevImg" aria-label="Previous image"></i>
+            <img id="fullImg" src="" alt="Opened image">
+            <i onclick="closeFullImage()" class="bi bi-x fs-1" aria-label="Close image focus"></i>
+            <i class="bi bi-chevron-right fs-1" id="nextImg" aria-label="Next image"></i>
          </div>
         <div id="img-gallery">
-            <h2>Photo Gallery</h2>
-            <h4>Memories from past events!</h4>
+            <h2 class="fs-2">Photo Gallery</h2>
+            <h3 class="fs-4">Memories from past events!</h3>
             <div id="import-photos"></div>
         </div>
 
 
         <!-- Youtube Videos -->
         <div id="video-gallery" class="container text-center py-5">
-            <div id="youtube">
-                <i class="bi bi-youtube fs-2 me-3"></i>
-                <h2 class="mb-4">View our latest videos here!</h2>
+            <div id="youtube" aria-label="Youtube videos below">
+                <i class="bi bi-youtube fs-2 me-3" aria-hidden="true"></i>
+                <h2 class="fs-2 mb-4">View our latest videos here!</h2>
             </div>    
 
             <div class="row gy-4">
                 <div class="col-12 col-md-6 col-lg-4">
-                    <div class="ratio ratio-16x9">
-                        <iframe src="https://www.youtube.com/embed/XC8A1CYUcEg"
+                    <div class="ratio ratio-16x9" aria-label="Video 1">
+                        <iframe src="https://www.youtube-nocookie.com/embed/XC8A1CYUcEg"
                             title="latest1"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             referrerpolicy="strict-origin-when-cross-origin"
@@ -126,8 +127,8 @@
                 </div>
 
                 <div class="col-12 col-md-6 col-lg-4">
-                    <div class="ratio ratio-16x9">
-                    <iframe src="https://www.youtube.com/embed/cmRcCQMAze8"
+                    <div class="ratio ratio-16x9" aria-label="Video 2">
+                    <iframe src="https://www.youtube-nocookie.com/embed/cmRcCQMAze8"
                         title="latest2"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         referrerpolicy="strict-origin-when-cross-origin"
@@ -136,8 +137,8 @@
                 </div>
 
                 <div class="col-12 col-md-6 col-lg-4">
-                    <div class="ratio ratio-16x9">
-                    <iframe src="https://www.youtube.com/embed/Qr2qNi012TQ"
+                    <div class="ratio ratio-16x9" aria-label="Video 3">
+                    <iframe src="https://www.youtube-nocookie.com/embed/Qr2qNi012TQ"
                         title="latest3"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         referrerpolicy="strict-origin-when-cross-origin"

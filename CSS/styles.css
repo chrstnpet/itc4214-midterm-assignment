@@ -1,7 +1,7 @@
 /* -------------------- Font Imports -------------------- */
 @font-face {
     font-family: 'Logo-Font';
-    src: url(./PermanentMarker-Regular.ttf);
+    src: url(./PermanentMarker-Regular.woff2);
     font-display: swap;
 }
 
@@ -82,7 +82,7 @@ header {
     position: fixed;
 }
 header img {
-    width: 7%;
+    width: 70px;
     height: auto;
     min-width: 4rem;
 }
@@ -98,9 +98,9 @@ header a {
     gap: 1rem;
 }
 .logo-name {
-    font-family: 'Logo-Font';
+    font-family: 'Logo-Font', Arial, Helvetica, sans-serif;
     color: var(--logo-text);
-    font-size: 5vh;
+    font-size: clamp(30px, 5vh, 40px);
 }
 header a:hover {
     color: var(--hover-text);
@@ -201,7 +201,7 @@ footer {
     background-color: var(--bg-color);
 }
 footer h1 { 
-    font-family: 'Logo-Font'; 
+    font-family: 'Logo-Font', Arial, Helvetica, sans-serif; 
     color: var(--logo-text); 
 }
 footer .sub-motto { 

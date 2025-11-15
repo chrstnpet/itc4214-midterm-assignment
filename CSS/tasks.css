@@ -62,7 +62,7 @@
 }
 
 .container h2 {
-    font-family: 'Logo-Font';
+    font-family: 'Logo-Font', Arial, Helvetica, sans-serif;
     color: var(--logo-text);
 }
 
