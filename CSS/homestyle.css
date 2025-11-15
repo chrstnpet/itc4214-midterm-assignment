@@ -49,7 +49,7 @@
 #tech-quote {
     background-color: var(--bg-color);
     text-align: center;
-    font-family: 'Logo-Font' Arial, Helvetica, sans-serif;
+    font-family: 'Logo-Font', Arial, Helvetica, sans-serif;
     color: var(--text-color);
     padding: 2% 20%;
 }
