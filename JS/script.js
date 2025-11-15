@@ -86,3 +86,30 @@ $(document).ready(function() {
 $(function() {
     $('#scrolltotop').load("./scrollbutton.html");
 })
+
+//--------------------------------------------------------------------------------------------
+// Getting latest tasks for home page
+$(document).ready(function() {
+    const allTasks = JSON.parse(localStorage.getItem('tasks') || '[]');
+    const pendingTasks = allTasks.filter(task => task.status === 'pending');
+    const lastThreePending = pendingTasks.sort((a, b) => b.id - a.id).slice(0, 3);
+
+    const $container = $('#latest');
+    $container.empty();
+
+    lastThreePending.forEach(task => {
+        const $col = $(`
+            <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-3">
+                <div class="activity-card p-3" style="background-color: var(--bg-color); border-radius: 10px;">
+                    <img src="${task.owner}" alt="Owner icon" width="90">
+                    <div>
+                        <p class="fw-bold mb-1">${task.title}</p>
+                        <p class="small mb-0">Due date: ${new Date(task.date).toLocaleDateString()}</p>
+                        <p class="priority-label">Priority: ${task.priority}</p>
+                    </div>
+                </div>
+            </div>
+        `);
+        $container.append($col);
+    });
+});
