@@ -273,8 +273,8 @@ footer .copyright {
                  0 0 10px var(--shadow);
 }
 
-.page-title-content h1, .carousel-overlay-text h2 {
-    font-size: clamp(2rem, 7vh, 5rem); /* responsive but capped */
+.page-title-content h1, .carousel-overlay-text h1 {
+    font-size: clamp(2rem, 7vh, 5rem);
     font-weight: bold;
     text-shadow: 0 0 10px var(--shadow),
                  0 0 20px var(--shadow),
@@ -283,6 +283,7 @@ footer .copyright {
 
 .page-title-content p, .carousel-overlay-text p {
     font-size: clamp(1rem, 4vh, 2.5rem);
+    font-weight: 500;
     text-shadow: 0 0 6px var(--shadow),
                  0 0 12px var(--shadow);
 }
