@@ -7,6 +7,9 @@
         <meta name="author" content="Christina Petsa">
         <meta name="keywords" content="Lounge, Seminar, NTUA, HTML, CSS, Javascript, Bootstrap, jQuery">
 
+        <link rel="preconnect" href="https://cdn.jsdelivr.net">
+        <link rel="preconnect" href="https://code.jquery.com">
+
         <link href="../CSS/styles.css" type="text/css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
             rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -20,6 +23,9 @@
 
         <!--Page specific head additions-->
         <link href="../CSS/aboutus.css" type="text/css" rel="stylesheet">
+        <link rel="preload" as="image" href="../Images/lounge1.JPG">
+        <link rel="preload" as="image" href="../Images/lounge2.JPG">
+        <link rel="preload" as="image" href="../Images/lounge3.jpg">
         
         <title>Lounge Seminar - About</title>
     </head>
@@ -39,21 +45,21 @@
                     <div class="carousel-item active">
                         <img class="d-block w-100" src="../Images/lounge1.JPG" alt="Lounge Seminar Moschides Event">
                         <div class="carousel-overlay-text">    
-                            <h2>Who are we?</h2>
+                            <h1>Who are we?</h1>
                             <p>Learn everything about us, our team and our event catalogue!</p>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img class="d-block w-100" src="../Images/lounge2.JPG" alt="Lounge Seminar Moschides Event Group Photo">
                         <div class="carousel-overlay-text">    
-                            <h2>Who are we?</h2>
+                            <h1>Who are we?</h1>
                             <p>Learn everything about us, our team and our event catalogue!</p>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img class="d-block w-100" src="../Images/lounge3.jpg" alt="Lounge Seminar Mathematical Presentations Event">
                         <div class="carousel-overlay-text">    
-                            <h2>Who are we?</h2>
+                            <h1>Who are we?</h1>
                             <p>Learn everything about us, our team and our event catalogue!</p>
                         </div>
                     </div>
@@ -72,7 +78,7 @@
             
 
             <div id="who-are-we">
-                <h2>About Lounge Seminar</h2>
+                <h1 class="fs-2">About Lounge Seminar</h1>
 
                 <p>Lounge Seminar (est. 2022) is a student-led initiative aimed at fostering the 
                     exchange of ideas and knowledge between students, alumni, and faculty.</p>
@@ -95,7 +101,7 @@
                     <div class="row justify-content-center">
                         <div class="col-12 col-sm-6 col-md-6 col-custom-4 mb-4">
                             <div class="event-card">
-                                <h3>(Student) Presentations</h3>
+                                <h1 class="fs-3">(Student) Presentations</h1>
                                 <hr>
                                 <div class="description-1">
                                     <p>At Lounge Seminar, we provide a safe space for students
@@ -115,7 +121,7 @@
                         </div>
                         <div class="col-12 col-sm-6 col-md-6 col-custom-4 mb-4">
                             <div class="event-card">
-                                <h3>Ask Me Anything</h3>
+                                <h1 class="fs-3">Ask Me Anything</h1>
                                 <hr>
                                 <div class="description-2">
                                     <p>Have you ever wondered: who are your professors? 
@@ -134,7 +140,7 @@
                         </div>
                         <div class="col-12 col-sm-6 col-md-6 col-custom-4 mb-4">
                             <div class="event-card">
-                                <h3>Other events</h3>
+                                <h1 class="fs-3">Other events</h1>
                                 <hr>
                                 <div id="description-3">
                                     <p>On occasion, we bring to you other interesting events, 

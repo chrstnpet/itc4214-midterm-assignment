@@ -25,11 +25,12 @@
     padding: 5% 10%;
     background-color: var(--bg-color-2);
 }
-#who-are-we h2 {
+#who-are-we h1 {
     color: var(--text-color);
-    font-weight: 700;
-    text-decoration: underline;
     margin-bottom: 20px;
+}
+#who-are-we h1:first-child {
+    text-decoration: underline;
 }
 #who-are-we p {
     color: var(--text-color);
@@ -43,7 +44,7 @@
 }
 
 /*------------ Event type cards ------------*/
-#event-types h3 {
+#event-types h1 {
     text-align: center;
     font-weight: 600;
 }
