@@ -5,7 +5,7 @@ body {
 /* ----------------- Page Title section ----------------- */
 .page-title {
     background-image: linear-gradient(var(--photo-hue)), url(../Images/event-title.jpeg);
-    aspect-ratio: 1242 / 659;
+    aspect-ratio: 600 / 300;
 }
 
 /* -------------- Jump to section ---------------*/
