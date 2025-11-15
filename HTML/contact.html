@@ -23,66 +23,74 @@
 
         <!--Page specific head additions-->
         <link rel="stylesheet" href="../CSS/contact.css" type="text/css">
+        <link rel="preload" as="image" href="../Images/contact-image.png" type="image/png">
 
         <title>Lounge Seminar - Contact</title>
     </head>
     <body>
         <div id="import-header"></div>
 
-        <div class="contact-intro">
-            <div class="contact-prompt">
-                <p>Contact us</p>
+        <div class="page-title">
+            <div class="page-title-content">    
+                <h1>Contact us</h1>
                 <p>Have a question? We’d love to hear from you.</p>
             </div>
         </div>
 
-        <div class="contact-page">
-            <div id="contact-us">
-                <h1>Connect with us</h1>
-                <p>Direct: <a href="mailto:loungeseminar@gmail.com" class="icon-links" target="_blank">
-                    <i class="bi bi-envelope-at-fill me-2"></i>loungeseminar@gmail.com
-                </a></p>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col col-12 col-sm-12 col-md-12 col-lg-5">
+                    <div id="contact-us" >
+                        <h2 class="fs-1">Connect with us</h2>
+                        <p>Direct: 
+                            <a href="mailto:loungeseminar@gmail.com" class="icon-links" target="_blank">
+                                <i class="bi bi-envelope-at-fill me-2" aria-hidden="true"></i>loungeseminar@gmail.com
+                            </a>
+                        </p>
 
-                <h4>More ways to connect</h4>
-                <div class="contact-links">
-                    <a href="https://www.instagram.com/loungeseminarsamps" class="icon-links" target="_blank">
-                        <i class="bi bi-instagram fs-2 me-3"></i></a>
-                    <a href="https://www.facebook.com/groups/1621547648227578/" class="icon-links" target="_blank">
-                        <i class="bi bi-facebook fs-2 me-3"></i></a>
-                    <a href="https://www.youtube.com/@LoungeSeminar" class="icon-links" target="_blank">
-                        <i class="bi bi-youtube fs-2 me-3"></i></a>
-                    <a href="https://www.linkedin.com/company/lounge-seminar/" class="icon-links" target="_blank">
-                        <i class="bi bi-linkedin fs-2 me-3"></i></a>
-                    <a href="https://helios.ntua.gr/enrol/index.php?id=5508" class="icon-links" target="_blank">
-                        <i class="bi bi-box-arrow-up-right fs-2"></i></a>
+                        <h2 class="fs-4">More ways to connect</h2>
+                        <div class="contact-links">
+                            <a href="https://www.instagram.com/loungeseminarsamps" class="icon-links" target="_blank" aria-label="Instagram">
+                                <i class="bi bi-instagram fs-2 me-3" aria-hidden="true"></i></a>
+                            <a href="https://www.facebook.com/groups/1621547648227578/" class="icon-links" target="_blank" aria-label="Facebook">
+                                <i class="bi bi-facebook fs-2 me-3" aria-hidden="true"></i></a>
+                            <a href="https://www.youtube.com/@LoungeSeminar" class="icon-links" target="_blank" aria-label="YouTube">
+                                <i class="bi bi-youtube fs-2 me-3" aria-hidden="true"></i></a>
+                            <a href="https://www.linkedin.com/company/lounge-seminar/" class="icon-links" target="_blank" aria-label="LinkedIn">
+                                <i class="bi bi-linkedin fs-2 me-3" aria-hidden="true"></i></a>
+                            <a href="https://helios.ntua.gr/enrol/index.php?id=5508" class="icon-links" target="_blank" aria-label="Helios for NTUA students">
+                                <i class="bi bi-box-arrow-up-right fs-2" aria-hidden="true"></i></a>
+                        </div>
+
+
+                        <h2 class="fs-4">Find us on location!</h2>
+                        <div id="map-section">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.0337489440526!2d23.780840675359883!3d37.97634170052425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a197f3856f4a15%3A0x54d28166c6280b4f!2zzqTOv868zq3Osc-CIM6czrHOuM63zrzOsc-EzrnOus-Ozr0gzqPOlc6czqbOlSAtIM6az4TOr8-BzrnOvyDOlQ!5e0!3m2!1sel!2sgr!4v1762289449329!5m2!1sel!2sgr" 
+                            loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-label="Google Maps frame"></iframe>
+                        </div>
+                    </div>
                 </div>
 
+                <div class="col-12 col-sm-12 col-md-12 col-lg-5">
+                    <div id="let-us-know">
+                        <h2 class="fs-4">Or notify us to contact you!</h2>
+                        <form id="contact-us-form">
+                            <label for="sender-name">Full name:</label>
+                            <input id="sender-name" name="Name" pattern="^[A-Z][a-z]+ [A-Z][a-z]+$" placeholder="Your full name" maxlength="40" required>
 
-                <h4>Find us on location!</h4>
-                <div id="map-section">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.0337489440526!2d23.780840675359883!3d37.97634170052425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a197f3856f4a15%3A0x54d28166c6280b4f!2zzqTOv868zq3Osc-CIM6czrHOuM63zrzOsc-EzrnOus-Ozr0gzqPOlc6czqbOlSAtIM6az4TOr8-BzrnOvyDOlQ!5e0!3m2!1sel!2sgr!4v1762289449329!5m2!1sel!2sgr" 
-                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <label for="sender-email">Your E-mail:</label>
+                            <input id="sender-email" name='E-mail' type="email" placeholder="example@email.com" maxlength="40" required>
+
+                            <label for="contact-subject">Subject:</label>
+                            <input id="contact-subject" name="Subject" type="text" placeholder="Subject" maxlength="50" required>
+
+                            <label for="message">How can we help you?</label>
+                            <textarea id="message" cols="60" rows="5" maxlength="500" placeholder="Type your message here!"></textarea>
+
+                            <button class="contact-btn" type="submit" aria-label="Submit your message">Send Message</button>
+                        </form> 
+                    </div>
                 </div>
-            </div>
-
-
-            <div id="let-us-know">
-                <h4>Or notify us to contact you!</h4>
-                <form id="contact-us-form">
-                    <label for="sender-name">Full name:</label>
-                    <input id="sender-name" name="Name" pattern="^[A-Z][a-z]+ [A-Z][a-z]+$" placeholder="Your full name" required>
-
-                    <label for="sender-email">Your E-mail:</label>
-                    <input id="sender-email" name='E-mail' type="email" placeholder="example@email.com" required>
-
-                    <label for="contact-subject">Subject:</label>
-                    <input id="contact-subject" name="Subject" type="text" placeholder="Subject" required>
-
-                    <label for="message">How can we help you?</label>
-                    <textarea id="message" cols="60" rows="5" placeholder="Type your message here!"></textarea>
-
-                    <button class="contact-btn" type="submit">Send Message</button>
-                </form> 
             </div>
         </div>
 

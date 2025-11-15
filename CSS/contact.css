@@ -1,39 +1,29 @@
 /* ------------------ Intro ------------------ */
-
 .page-title {
-    background-image: linear-gradient(var(--photo-hue)),url(../Images/contact-image.png);
+    background-image: linear-gradient(var(--photo-hue)), url(../Images/contact-image.png);
     aspect-ratio: 600 / 300;
-}
-
-/* ------------------ Main Section ------------------ */
-
-.contact-page {
-    background-color: var(--bg-color-2);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-left: 15vw;
-    padding-right: 10vw;
+    text-align: center;
+    color: var(--text-color);
 }
 
-#contact-us {
-    flex: 1;
-    text-align: left;
+/* ------------------ Main Section ------------------ */
+.container {
+    background-color: var(--bg-color-2);
+    padding: 3% 5%;
 }
 
-#contact-us h1 {
-    margin-bottom: 15px;
+#contact-us h2 {
+    margin: 15px 0;
 }
 
 #contact-us p {
     margin-bottom: 30px;
 }
 
-#contact-us h4 {
-    margin-top: 15px;
-}
-
-.contact-links a {
+.contact-links a, #contact-us a {
     color: var(--text-color);
 }
 
@@ -42,8 +32,6 @@
     color: var(--text-color);
     border-radius: 10px;
     padding: 3%;
-    margin: 5vw;
-    width: 40vw;
 }
 
 #contact-us-form {
@@ -59,11 +47,10 @@
     border: none;
     background-color: rgb(230,230,230);
     outline: none;
+    transition: background-color 0.2s ease;
 }
 
- #let-us-know input:focus, #let-us-know textarea:focus {
-    outline: none;
-    border: none;
+#let-us-know input:focus, #let-us-know textarea:focus {
     background-color: white;
 }
 
@@ -71,43 +58,33 @@
     border-radius: 10px;
     padding: 2%;
     width: clamp(180px, 6vw, 6vw);
-    outline: none;
     border: none;
-    transition: transform 0.2s ease;
-}
-
-#let-us-know .contact-btn {
+    outline: none;
     background-color: rgba(230,230,230,0.8);
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 #let-us-know .contact-btn:hover {
     transform: scale(1.05);
-}
-
-#let-us-know .contact-btn:hover {
     background-color: white;
 }
 
-@media (max-width:1200px) {
-    .contact-page {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    #contact-us {
-        padding-top: 5%;
-    }
-}
-
 /* ------------------ Map Integration ------------------ */
-
 #map-section {
     margin-top: 15px;
 }
 
 #map-section iframe {
-    width: clamp(400px, 30vw,30vw);
-    height: clamp(200px, 40vh, 40vh);
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    aspect-ratio: 16 / 9;
     border: 2px solid var(--bg-color-3);
+}
+
+
+@media (max-width: 992px) {
+    #let-us-know {
+        margin-top: 30px;
+    }
 }
