@@ -18,14 +18,19 @@
 .welcome-content h1 {
     font-size: 3.5rem;
     margin-bottom: 20px;
-    text-shadow: 0 0 20px var(--shadow);
 }
 
 .welcome-content p {
-    text-shadow: 0 0 20px var(--shadow);
-    font-weight: 600;
+    font-weight: bold;
     margin-top: 20px;
     line-height: 2;
+}
+
+.welcome-content h1, .welcome-content p {
+    text-shadow: 0 0 5px var(--shadow),
+        0 0 5px var(--shadow),
+        0 0 10px var(--shadow),
+        0 0 20px var(--shadow);
 }
 
 .welcome-content button {
@@ -45,7 +50,7 @@
     background-color: var(--button-hover);
 }
 
-/* -------------------- Tech Quote Section -------------------- */
+/* -------------------- API Integration - Tech Quote Section -------------------- */
 #tech-quote {
     background-color: var(--bg-color);
     text-align: center;
