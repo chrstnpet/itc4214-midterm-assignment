@@ -78,6 +78,11 @@ $('.modal form').on('submit', function (e) {
         return;
     }
 
+    if(EventManager.events.length >= 5) {
+        alert('Maximun of 5 events reached.'); // Not a single chance that we have more than 2 events scheduled at a time LOL.
+        return;
+    }
+
     const newEvent = {
         id: Date.now(),
         title,
