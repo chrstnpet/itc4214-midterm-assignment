@@ -122,7 +122,7 @@ const TaskManager = {
                 var(--low) ${highDeg + mediumDeg}deg 360deg
             )
         `;
-        document.querySelector('.piechart').style.backgroundImage = pieGradient;
+        $('.piechart').css('background-image', pieGradient);
     }
 };
 
@@ -203,7 +203,8 @@ function handleFormSubmit(e) {
     }
 
     $('#taskModal form')[0].reset();
-    const modal = bootstrap.Modal.getInstance(document.querySelector('#taskModal'));
+    const modal = bootstrap.Modal.getInstance($('#taskModal')[0]);
+
     modal.hide();
 }
 
@@ -252,7 +253,7 @@ $(document).on('click', '.edit-btn', function () {
     $('#taskPriority').val(task.priority);
 
     $('#taskModal form').off('submit').on('submit', handleFormSubmit);
-    const modal = new bootstrap.Modal(document.querySelector('#taskModal'));
+    const modal = new bootstrap.Modal($('#taskModal')[0]);
     modal.show();
 });
 

@@ -26,7 +26,7 @@ const EventManager = {
             <div class="event-card" data-id="${event.id}" data-date="${event.date}">
                 <div class="d-flex justify-content-between align-items-start mb-2">
                     <div>
-                        <h1 class="fs-4 fw-bold mb-1">${event.title}</h1>
+                        <h2 class="fs-4 fw-bold mb-1">${event.title}</h2>
                         <p class="small mb-0">${new Date(event.date).toLocaleDateString()}</p>
                     </div>
                     <div id="cardButtons" class="d-flex gap-2">
@@ -133,7 +133,7 @@ function formatDateUTC(date) {
 
 $(document).on('click', '.google-calendar-btn', function () {
     const $card = $(this).closest('.event-card');
-    const title = $card.find('h4').text();
+    const title = $card.find('h2').text();
     const description = $card.find('.event-description').text();
 
     const startDate = new Date($card.data('date'));
