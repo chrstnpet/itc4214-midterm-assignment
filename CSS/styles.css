@@ -150,7 +150,9 @@ header a:hover {
     .open-sidebar-button, .close-sidebar-button {
         display: block;
         font-size: 2.5rem;
-        margin-left: 20px; 
+    }
+    .close-sidebar-button {
+        margin-left: 20px;
     }
 }
 @media (max-width: 550px) { 
