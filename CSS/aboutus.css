@@ -12,7 +12,7 @@
     display: block;
 }
 .carousel-inner::before {
-    content: ""; /* i need this so that it is applied on the entirety of the carousel */
+    content: ""; /* overlay applied to entirety of carousel */
     position: absolute;
     inset: 0;
     background: linear-gradient(var(--photo-hue));
@@ -24,16 +24,17 @@
 #who-are-we {
     padding: 5% 10%;
     background-color: var(--bg-color-2);
-}
-#who-are-we h1 {
     color: var(--text-color);
+}
+
+#who-are-we h1 {
     margin-bottom: 20px;
 }
 #who-are-we h1:first-child {
     text-decoration: underline;
 }
+
 #who-are-we p {
-    color: var(--text-color);
     line-height: 1.9;
     padding: 0 5%;
     margin-inline: auto;
@@ -48,6 +49,7 @@
     text-align: center;
     font-weight: 600;
 }
+
 .event-card {
     background-color: var(--bg-color-3);
     color: var(--text-color);
@@ -63,6 +65,12 @@
 .event-card p {
     text-align: justify;
     text-indent: 1.5rem;
+}
+
+/* Responsive event card columns */
+.col-custom-4 {
+    flex: 0 0 100%;
+    max-width: 100%;
 }
 @media (min-width: 768px) and (max-width: 1099px) {
     .col-custom-4 {
@@ -81,9 +89,13 @@
 #members {
     text-align: center;
     padding: 5rem 0;
+    color: var(--text-color);
+}
+.name, .role {
+    font-family: 'Logo-Font', Arial, Helvetica, sans-serif;
 }
 #members h1 {
-  font-family: 'Logo-Font' Arial, Helvetica, sans-serif;
+    margin-bottom: 1rem;
 }
 #members .col p {
     margin: 5px;
@@ -96,17 +108,16 @@
     transition: transform 0.2s ease;
 }
 #members img:hover {
-  transform: scale(1.05);
+    transform: scale(1.05);
 }
 #members .name, #members .role {
-  font-family: 'Logo-Font', Arial, Helvetica, sans-serif;
-  text-align: center;
+    text-align: center;
 }
 #members .name {
-  font-size: clamp(20px, 3.5vh, 24px);
+    font-size: clamp(20px, 3.5vh, 24px);
 }
 #members .role {
-  font-size: clamp(15px, 3vh, 20px)
+    font-size: clamp(15px, 3vh, 20px);
 }
 .member-card {
     border: 2px solid var(--logo-text);
