@@ -61,3 +61,28 @@
 #author { 
     font-size: 1rem; 
 }
+
+/*-------------------- Call to action ------------------------- */
+.calltoaction {
+    background-color: var(--bg-color-2);
+    text-align: center;
+    padding: 2%;
+}
+.redirectButtons {
+    padding-top: 2%;
+}
+.redirectButtons p {
+    margin-top: 20px;
+    font-weight: 500;
+}
+.redirectButtons button {
+    background-color: var(--button);
+    border: 1px solid var(--text-color);
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: transform 0.2s ease;
+}
+.redirectButtons button:hover {
+    background-color: var(--button-hover);
+    transform: scale(1.05);
+}

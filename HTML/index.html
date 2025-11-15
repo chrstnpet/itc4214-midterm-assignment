@@ -17,6 +17,7 @@
 
         <!--Page specific head additions-->
             <link href="../CSS/homestyle.css" type="text/css" rel="stylesheet">
+            <link rel="preload" as="image" href="../Images/ntua.jpg">
             <title>Lounge Seminar - Home</title>
     </head>
     <body>
@@ -38,6 +39,26 @@
             <div id="tech-quote">
                 <blockquote id="quote"></blockquote>
                 <p id="author"></p>
+            </div>
+
+            <div class="calltoaction">
+                <h1>Get started</h1>
+                <div class="container">
+                    <div class="redirectButtons row">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+                            <p>Manage your tasks, get that work done!</p>
+                            <button onclick="window.location='./tasks.html'">Task Manager</button>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+                            <p>Check out upcoming events and past memorabilia!</p>
+                            <button onclick="window.location='./events.html'">Events</button>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                            <p>Want to join or present? Do you have any questions?</p>
+                            <button onclick="window.location='./contact.html'">Contact us!</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
 
