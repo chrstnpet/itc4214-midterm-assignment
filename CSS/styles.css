@@ -7,6 +7,8 @@
 
 /* -------------------- Color Variables -------------------- */
 :root {
+    font-size: 16px;
+
     --text-color: #1a1a1a;
     --subtext-color: rgb(85, 85, 85);
     --hover-text: #aba7ae;
@@ -276,7 +278,7 @@ footer .copyright {
 }
 
 .page-title-content h1, .carousel-overlay-text h1 {
-    font-size: clamp(2rem, 7vh, 5rem);
+    font-size: clamp(20px, 3rem, 3rem);
     font-weight: bold;
     text-shadow: 0 0 10px var(--shadow),
                  0 0 20px var(--shadow),
@@ -284,23 +286,32 @@ footer .copyright {
 }
 
 .page-title-content p, .carousel-overlay-text p {
-    font-size: clamp(1rem, 4vh, 2.5rem);
+    font-size: clamp(20px, 2rem, 2rem);
     font-weight: 500;
     text-shadow: 0 0 6px var(--shadow),
                  0 0 12px var(--shadow);
 }
 
 @media (max-width: 850px) {
-    .page-title-content h2, .carousel-overlay-text h2 {
-        font-size: clamp(1.5rem, 5vw, 3rem);
+    .page-title-content {
+        top: 60%;
+    }
+    .page-title-content h1, .carousel-overlay-text h1 {
+        font-size: 3rem;
     }
 
     .page-title-content p, .carousel-overlay-text p {
-        font-size: clamp(1rem, 3.2vw, 2rem);
+        font-size: 1.5rem;
     }
 }
-@media (max-width: 400px) {
+@media (max-width: 550px) {
+    .page-title-content {
+        top: 50%;
+    }
+    .page-title-content h1 {
+        font-size: 2rem;
+    }
     .page-title-content p, .carousel-overlay-text p {
-        font-size: clamp(1rem, 1.5vw, rem);
+        font-size: 1rem;
     }
 }
