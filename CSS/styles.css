@@ -196,7 +196,7 @@ header a:hover {
 footer {
     background-color: var(--bg-color);
 }
-footer h3, footer h4 { 
+footer h1 { 
     font-family: 'Logo-Font'; 
     color: var(--logo-text); 
 }

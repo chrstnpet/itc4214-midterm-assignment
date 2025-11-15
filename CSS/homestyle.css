@@ -67,6 +67,7 @@
     background-color: var(--bg-color-2);
     text-align: center;
     padding: 2%;
+    color: var(--logo-text);
 }
 .redirectButtons {
     padding-top: 2%;
@@ -74,6 +75,7 @@
 .redirectButtons p {
     margin-top: 20px;
     font-weight: 500;
+    color: var(--text-color);
 }
 .redirectButtons button {
     background-color: var(--button);
@@ -81,6 +83,7 @@
     padding: 10px 20px;
     border-radius: 20px;
     transition: transform 0.2s ease;
+    color: var(--text-color);
 }
 .redirectButtons button:hover {
     background-color: var(--button-hover);
