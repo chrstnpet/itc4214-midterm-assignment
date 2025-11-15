@@ -8,12 +8,12 @@ $(function() {
 //---------------------------------------------------------------
 // Dark mode implementation
 function enableDarkmode() {
-    document.body.classList.add('darkmode');
+    $('body').addClass('darkmode');
     localStorage.setItem('darkmode', 'active');
 }
 
 function disableDarkmode() {
-    document.body.classList.remove('darkmode');
+    $('body').removeClass('darkmode');
     localStorage.removeItem('darkmode');
 }
 
