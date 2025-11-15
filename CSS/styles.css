@@ -1,8 +1,7 @@
 /* -------------------- Font Imports -------------------- */
 @font-face {
     font-family: 'Logo-Font';
-    src: url(./PermanentMarker-Regular.ttf) format('truetype');
-    font-display: swap;
+    src: url(./PermanentMarker-Regular.ttf);
 }
 
 /* -------------------- Color Variables -------------------- */
@@ -153,9 +152,6 @@ header a:hover {
     .close-sidebar-button { 
         padding: 5% 6%; 
     }
-    #logo { 
-        margin-left: auto; 
-    }
 }
 @media (max-width: 550px) { 
     .logo-name { 
@@ -171,8 +167,8 @@ header a:hover {
     border: none;
     background-color: var(--button);
     border-radius: 50%;
-    height: 50px;
     width: 60px;
+    aspect-ratio: 1/1;
     position: relative;
     cursor: pointer;
 }
@@ -302,6 +298,6 @@ footer .copyright {
 }
 @media (max-width: 400px) {
     .page-title-content p, .carousel-overlay-text p {
-        font-size: clamp(1rem, 1.5vw, 1.5rem);
+        font-size: clamp(1rem, 1.5vw, rem);
     }
 }
