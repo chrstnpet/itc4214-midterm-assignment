@@ -26,17 +26,17 @@ const EventManager = {
             <div class="event-card" data-id="${event.id}" data-date="${event.date}">
                 <div class="d-flex justify-content-between align-items-start mb-2">
                     <div>
-                        <h4 class="fw-bold mb-1">${event.title}</h4>
+                        <h1 class="fs-4 fw-bold mb-1">${event.title}</h1>
                         <p class="small mb-0">${new Date(event.date).toLocaleDateString()}</p>
                     </div>
                     <div id="cardButtons" class="d-flex gap-2">
-                        <button class="btn learn-more-btn">Learn More</button>
-                        <button class="btn google-calendar-btn" title="Add to Google Calendar">
-                            <i class="bi bi-calendar2-plus"></i>
+                        <button class="btn learn-more-btn" aria-label="Learn More button">Learn More</button>
+                        <button class="btn google-calendar-btn" title="Add to Google Calendar" aria-label="Add event to your Google Calendar">
+                            <i class="bi bi-calendar2-plus" aria-hidden="true"></i>
                             Add to Google Calendar
                         </button>
-                        <button class="btn delete-btn">
-                            <i class="bi bi-trash"></i>
+                        <button class="btn delete-btn" aria-label="Delete event button">
+                            <i class="bi bi-trash" aria-hidden="true"></i>
                         </button>
                     </div>
                 </div>
