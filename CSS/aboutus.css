@@ -1,138 +1,117 @@
-/* ----------------- Title Section ----------------- */
-/* the title text is in the styles.css file */
+/*---------- Carousel ----------*/
 .carousel-inner {
-    width: 100vw;
+    height: 100%;
     position: relative;
+    overflow: hidden;
 }
-
+.carousel-inner img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
 .carousel-inner::before {
     content: ""; /* i need this so that it is applied on the entirety of the carousel */
     position: absolute;
-    top:0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background: linear-gradient(var(--photo-hue));
     z-index: 1;
     pointer-events: none;
 }
 
-/* ----------------- Who are we section ----------------- */
+/*---------- Who are we? ------------*/
 #who-are-we {
     padding: 5% 10%;
     background-color: var(--bg-color-2);
 }
-
-#who-are-we h2, #who-are-we p {
+#who-are-we h2 {
     color: var(--text-color);
-    line-height: 2;
-}
-
-#who-are-we h2:first-child {
-    font-weight: bold;
+    font-weight: 700;
     text-decoration: underline;
+    margin-bottom: 20px;
 }
-
+#who-are-we p {
+    color: var(--text-color);
+    line-height: 1.9;
+    padding: 0 5%;
+    margin-inline: auto;
+    text-align: justify;
+}
 #who-are-we p:last-of-type {
-    margin-bottom: 10vh;
+    margin-bottom: 8vh;
 }
 
-
-/* ----------------- Events Section ----------------- */
-
+/*------------ Event type cards ------------*/
 #event-types h3 {
-  text-align: center;
+    text-align: center;
+    font-weight: 600;
 }
-
-#event-types p {
-  text-align: justify;
-  text-indent: 10%;
-}
-
 .event-card {
-  background-color: var(--bg-color-3);
-  color: var(--text-color);
-  border-radius: 20px;
-  padding: 5% 8% 0 8%;
-  box-shadow: 0 0 5px 0 var(--shadow-2);
-  height: 100%;
-}
-
-.event-card p:first-of-type {
-    margin-top: 5%;
-}
-
-@media (max-width: 767.98px) {
-  #event-types .col-custom-4 {
-    flex: 0 0 100% !important;
-    max-width: 100% !important;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1099.98px) {
-  #event-types .col-custom-4 {
-    flex: 0 0 50%;
-    max-width: 50%;
-  }
-}
-
-@media (min-width: 1000px) {
-  .col-custom-4 {
-    flex: 0 0 33.3333%;
-    max-width: 33.3333%;
-  }
-}
-
-
-/* ----------------- Members Section ----------------- */
-
-#members {
-    text-align: center;
-}
-
-#members h1 {
-    margin-top: 10vh;
+    background-color: var(--bg-color-3);
     color: var(--text-color);
-}
-
-#members img {
-    margin-top: 10%;
-}
-
-#members h5 {
-    font-family: 'Logo-Font';
-    color: var(--text-color);
-}
-
-#members .member-card {
-    border: 2px solid var(--logo-text);
-    padding: 5%;
-    border-radius: 15px;
-    margin-top: 10%;
-}
-
-#members button {
-    color: var(--logo-text);
-    text-decoration: none;
-    margin-top: 0;
-}
-
-#become-member {
-    text-align: center;
-    margin-top: 5vh;
-}
-
-#become-member button {
-    background-color: var(--button);
-    color: var(--text-color);
-    padding: 1.5%;
     border-radius: 20px;
-    outline: none;
-    border: none;
+    padding: 2rem;
+    box-shadow: 0 0 8px var(--shadow-2);
+    height: 100%;
     transition: transform 0.2s ease;
 }
+.event-card:hover {
+    transform: translateY(-4px);
+}
+.event-card p {
+    text-align: justify;
+    text-indent: 1.5rem;
+}
+@media (min-width: 768px) and (max-width: 1099px) {
+    .col-custom-4 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+@media (min-width: 1100px) {
+    .col-custom-4 {
+        flex: 0 0 33.3333%;
+        max-width: 33.3333%;
+    }
+}
 
-#become-member button:hover {
-    background-color: var(--button-hover);
-    transform: scale(1.05);
+/*--------- Members ---------*/
+#members {
+    text-align: center;
+    padding: 5rem 0;
+}
+#members h1 {
+  font-family: 'Logo-Font';
+}
+#members .col p {
+    margin: 5px;
+}
+#members img {
+    margin-top: 20px;
+    border-radius: 50%;
+    max-width: 200px;
+    height: auto;
+    transition: transform 0.2s ease;
+}
+#members img:hover {
+  transform: scale(1.05);
+}
+#members .name, #members .role {
+  font-family: 'Logo-Font';
+  text-align: center;
+}
+#members .name {
+  font-size: clamp(20px, 3.5vh, 24px);
+}
+#members .role {
+  font-size: clamp(15px, 3vh, 20px)
+}
+.member-card {
+    border: 2px solid var(--logo-text);
+    padding: 4%;
+    border-radius: 15px;
+    text-align: justify;
+    background-color: var(--bg-color-2);
+    transition: transform 0.2s ease;
 }
