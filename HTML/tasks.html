@@ -26,6 +26,7 @@
         <script src="../JS/tasks.js" type="text/javascript" defer></script>
             <!-- Markdown parser -->
             <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        <link rel="preload" fetchpriority="high" as="image" href="../Images/tasks.jpeg" type="image/jpeg">
 
         <title>Tasks</title>
     </head>
@@ -64,21 +65,21 @@
                     <div id="participants">
                         <p class="text-center fw-bold">Participants</p>
                         <div class="participant-icons">
-                            <img src="../Images/circle_dionisia.png">
-                            <img src="../Images/circle_christina.png">
-                            <img src="../Images/circle_kostas.png">
-                            <img src="../Images/circle_aggelina.png">
+                            <img src="../Images/circle_dionisia.png" alt="Dionisia Dragona icon">
+                            <img src="../Images/circle_christina.png" alt="Christina Petsa icon">
+                            <img src="../Images/circle_kostas.png" alt="Kostantinos Vasilopoulos icon">
+                            <img src="../Images/circle_aggelina.png" alt="Aggelina Sideri icon">
                         </div>
                     </div>
-                    <button class="task-btn" data-bs-toggle="modal" data-bs-target="#taskModal">
-                        <i class="bi bi-plus-lg"></i> Add Task
+                    <button class="task-btn" data-bs-toggle="modal" data-bs-target="#taskModal" aria-label="Add task button">
+                        <i class="bi bi-plus-lg" aria-hidden="true"></i> Add Task
                     </button>
                 </div>
 
                 <div class="sorting d-flex gap-2">
                     <label for="sortingOptions" class="form-label">Sort by:</label>
                     <select id="sortingOptions" class="form-select">
-                        <option value="random"></option>
+                        <option value="random">Default</option>
                         <option value="title">Title</option>
                         <option value="date">Due Date</option>
                     </select>
@@ -86,24 +87,24 @@
 
                 <div class="row justify-content-center">
                     <div id="pending-tasks" class="col col-12 col-sm-12 col-md-6 col-lg-4">
-                        <h3>Pending</h3>
+                        <h2 class="fs-3">Pending</h2>
                         <div class="task-cards pending"></div>
                     </div>
 
                     <div id="inprogress-tasks" class="col col-12 col-sm-12 col-md-6 col-lg-4">
-                        <h3>In progress</h3>
+                        <h2 class="fs-3">In progress</h2>
                         <div class="task-cards inprogress"></div>
                     </div>
 
                     <div id="done-tasks" class="col col-12 col-sm-12 col-md-6 col-lg-4">
-                        <h3>Done</h3>
+                        <h2 class="fs-3">Done</h2>
                         <div class="task-cards done"></div>
                     </div>
                 </div>
 
                 <div id="dashboard" class="row justify-content-center"> 
                     <div class="col col-12 col-md-4 col-lg-3 d-flex flex-column align-items-center"> 
-                        <h3>Tasks Status</h3> 
+                        <h2 class="fs-3">Tasks Status</h2> 
                         <div class="bar-charts"> 
                             <div class="task-progress"> 
                                 <p></p> 
@@ -121,7 +122,7 @@
                     </div>
 
                     <div class="col col-12 col-md-4 col-lg-3"> 
-                        <h3 class="text-center">Priority</h3> 
+                        <h2 class="text-center fs-3">Priority</h2> 
                         <div class="piechart">
                             <div class="center-label">100%</div>
                         </div>
@@ -134,7 +135,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title">Add New Task</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close form"></button>
                         </div>
 
                         <div class="modal-body">
@@ -182,7 +183,7 @@
                                 </div>
 
                                 <div class="text-end">
-                                    <button type="submit" class="btn btn-primary">Save Task</button>
+                                    <button type="submit" class="btn btn-primary" aria-label="Save task button">Save Task</button>
                                 </div>
                             </form>
                         </div>

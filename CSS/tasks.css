@@ -1,5 +1,5 @@
 .page-title {
-    background-image: linear-gradient(var(--photo-hue)), url(../Images/tasks.jpg);
+    background-image: linear-gradient(var(--photo-hue)), url(../Images/tasks.jpeg);
     aspect-ratio: 6000 / 4000;
 }
 
@@ -127,6 +127,7 @@
 /*------------------------ Sorting ------------------------- */
 .sorting {
     margin-top: 30px;
+    margin-bottom: 20px;
 }
 
 #sortingOptions {
@@ -146,7 +147,6 @@
     padding: 4%;
     border-radius: 15px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
     margin: 2% 0;
     width: 95%;
 }
