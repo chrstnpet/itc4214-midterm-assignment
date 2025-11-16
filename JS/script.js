@@ -37,12 +37,14 @@ async function getquote(url){
     try {
         const response = await fetch(url);
         var data = await response.json();
+        $('#tech-quote').show();
         $quote.html(data.content);
         $author.html(data.author);
     }
     catch(error) {
-        $quote.html("Could not fetch quote.");
-        $author.html("Could not fetch author");
+        $('#tech-quote').hide();
+        // $quote.html("Could not fetch quote.");
+        // $author.html("Could not fetch author");
         console.error("Error fetching quote:", error);
     }
 }
