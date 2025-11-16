@@ -104,19 +104,33 @@ $(document).ready(function() {
     const $container = $('#latest');
     $container.empty();
 
-    lastThreePending.forEach(task => {
-        const $col = $(`
+    if (lastThreePending.length === 0) {
+        $container.html(`
             <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-3">
-                <div class="activity-card p-3" style="background-color: var(--bg-color); border-radius: 10px;">
-                    <img src="${task.owner}" alt="Owner icon" width="90">
-                    <div>
-                        <p class="fw-bold mb-1">${task.title}</p>
-                        <p class="small mb-0">Due date: ${new Date(task.date).toLocaleDateString()}</p>
-                        <p class="priority-label">Priority: ${task.priority}</p>
-                    </div>
-                </div>
+                <p>No recent pending tasks.</p>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-3">
+                <p>No recent pending tasks.</p>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-3">
+                <p>No recent pending tasks.</p>
             </div>
         `);
-        $container.append($col);
-    });
+    } else {
+        lastThreePending.forEach(task => {
+            const $col = $(`
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-3">
+                    <div class="activity-card p-3" style="background-color: var(--bg-color); border-radius: 10px;">
+                        <img src="${task.owner}" alt="Owner icon" width="90">
+                        <div>
+                            <p class="fw-bold mb-1">${task.title}</p>
+                            <p class="small mb-0">Due date: ${new Date(task.date).toLocaleDateString()}</p>
+                            <p class="priority-label">Priority: ${task.priority}</p>
+                        </div>
+                    </div>
+                </div>
+            `);
+            $container.append($col);
+        });    
+    }
 });
