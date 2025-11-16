@@ -10,8 +10,10 @@
 }
 
 /* ------------------ Main Section ------------------ */
-.container {
+body {
     background-color: var(--bg-color-2);
+}
+.container {
     padding: 3% 5%;
 }
 
