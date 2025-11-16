@@ -30,6 +30,7 @@ $(document).on('click', '#theme-switch', function() {
 //---------------------------------------------------------------------
 // API integration (using a mix of JS and jQuery)
 const api_url = "http://api.quotable.io/random?tags=technology";
+const $techquote = $('#tech-quote');
 const $quote = $('#quote');
 const $author = $('#author');
 
@@ -37,12 +38,12 @@ async function getquote(url){
     try {
         const response = await fetch(url);
         var data = await response.json();
-        $('#tech-quote').show();
+        $techquote.show();
         $quote.html(data.content);
         $author.html(data.author);
     }
     catch(error) {
-        $('#tech-quote').hide();
+        $techquote.hide();
         // $quote.html("Could not fetch quote.");
         // $author.html("Could not fetch author");
         console.error("Error fetching quote:", error);
