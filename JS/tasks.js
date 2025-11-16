@@ -57,7 +57,7 @@ const TaskManager = {
                 <div class="d-flex justify-content-between mb-2">
                     <div> 
                         <p class="fw-bold mb-1">${task.title}</p> 
-                        <p class="small mb-0">${new Date(task.date).toLocaleDateString()}</p> 
+                        <p class="small mb-0">Due date: ${new Date(task.date).toLocaleDateString()}</p> 
                     </div>
                     <div id="cardButtons" class="d-flex"> 
                         <button class="btn learn-more-btn" aria-label="Read task objectives">Details</button> 
