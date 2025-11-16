@@ -66,6 +66,10 @@ $(document).ready(function() {
             message: $('#message').val()
         }
 
+        const saved = JSON.parse(localStorage.getItem('contactForms') || '[]');
+        saved.push(formData);
+        localStorage.setItem('contactForms', JSON.stringify(saved));
+
         console.log('Contact Form Submission:', formData);
 
         const alertMessage = 
