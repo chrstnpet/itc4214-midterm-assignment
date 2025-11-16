@@ -32,6 +32,7 @@ const TaskManager = {
         const task = this.tasks.find(t => t.id === taskId);
         if (!task) return;
         task.status = 'done';
+        task.editstamp = Date.now();
         this.save();
         const $card = $(`.task-card[data-id="${taskId}"]`);
         $('#done-tasks').append($card);
@@ -186,6 +187,7 @@ function handleFormSubmit(e) {
 
     const newTask = {
         id: TaskManager.editTaskId || Date.now(),
+        editstamp: Date.now(),
         title,
         owner: ownerMap[ownerName],
         ownerName,

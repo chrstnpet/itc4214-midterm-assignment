@@ -98,7 +98,7 @@ $(function() {
 // Getting latest tasks for home page
 $(document).ready(function() {
     const allTasks = JSON.parse(localStorage.getItem('tasks') || '[]');
-    const lastThree = allTasks.sort((a, b) => b.id - a.id).slice(0, 3);
+    const lastThree = allTasks.sort((a, b) => b.editstamp  - a.editstamp ).slice(0, 3);
 
     const $container = $('#latest');
     $container.empty();
